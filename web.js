@@ -29,7 +29,7 @@ var spooky = new Spooky({
             this.emit('hello', 'Hello, from ' + this.evaluate(function () {
                 return document.title;
             }));
-                this.emit('hey','>>>>>>>>>>>>>>>> IT WORKS! <<<<<<<<<<<<<<<<');
+            console.log('>>>>>>>>>>>>>>>> IT WORKS! <<<<<<<<<<<<<<<<');
         });
         spooky.run();
     });
@@ -53,11 +53,13 @@ spooky.on('console', function (line) {
 var gGreeting = 'Hello World';
 
 spooky.on('hello', function (greeting) {
+    console.log('hello');
     console.log(greeting);
     gGreeting = greeting;
 });
 
 spooky.on('log', function (log) {
+    console.log('log');
     if (log.space === 'remote') {
         console.log(log.message.replace(/ \- .*/, ''));
     }
@@ -66,10 +68,12 @@ spooky.on('log', function (log) {
 
 app.use(express.logger());
 app.get('/', function(request, response) {
+    console.log('get');
     response.send(gGreeting);
 });
 
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
+    console.log('port');
     console.log("Listening on " + port);
 });
