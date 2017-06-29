@@ -35,38 +35,38 @@ function startSpooky(){
 			});
 			spooky.run();
 		});
+
+	spooky.on('error', function (e, stack) {
+		console.log('error');
+		console.error(e);
+	//test
+		if (stack) {
+			console.log(stack);
+		}
+	});
+
+	/*
+	// Uncomment this block to see all of the things Casper has to say.
+	// There are a lot.
+	// He has opinions.
+	spooky.on('console', function (line) {
+		console.log(line);
+	});
+	*/
+	var gGreeting = 'Hello World';
+
+	spooky.on('hello', function (greeting) {
+		console.log('>>>>>>>>>>>>>>>> IT WORKS! <<<<<<<<<<<<<<<<');
+		console.log(greeting);
+		gGreeting = greeting;
+	});
+
+	spooky.on('log', function (log) {
+		if (log.space === 'remote') {
+			console.log(log.message.replace(/ \- .*/, ''));
+		}
+});
 }
-spooky.on('error', function (e, stack) {
-    console.log('error');
-    console.error(e);
-//test
-    if (stack) {
-        console.log(stack);
-    }
-});
-
-/*
-// Uncomment this block to see all of the things Casper has to say.
-// There are a lot.
-// He has opinions.
-spooky.on('console', function (line) {
-    console.log(line);
-});
-*/
-var gGreeting = 'Hello World';
-
-spooky.on('hello', function (greeting) {
-    console.log('>>>>>>>>>>>>>>>> IT WORKS! <<<<<<<<<<<<<<<<');
-    console.log(greeting);
-    gGreeting = greeting;
-});
-
-spooky.on('log', function (log) {
-    if (log.space === 'remote') {
-        console.log(log.message.replace(/ \- .*/, ''));
-    }
-});
-
 
 app.use(express.logger());
 app.get('/', function(request, response) {
