@@ -32,8 +32,14 @@ function startSpooky(searchTerm){
 			spooky.start('https://adwords.google.com/apt/anon/AdPreview?aptenv_v2=ZG9tYWluPXd3dy5nb29nbGUuY29tLGxhbmc9ZW4sbG9jPTEwMjMxOTF8VVMscGxhdD1ERVNLVE9Q&st='+searchTermURL+'&run=true',function(){
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
 					console.log('iframe exists');
-					console.log('.ads-visurl');
-					if (this.exists('li.ads-ad')) {
+					var iFrame = document.querySelector('.aw-diagnostic-preview-iframe-v2');
+					var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+					var links = iframeDocument.querySelectorAll('li.ads-ad');
+					console.log(links.length);
+					for (var index = 0; index < links.length; index++) {
+						console.log(links[index]);
+					}
+					/*if (this.exists('li.ads-ad')) {
 						console.log('li.ads-ad exists');
 						var links = document.querySelectorAll('li.ads-ad');
 						console.log(links.length);
@@ -50,7 +56,7 @@ function startSpooky(searchTerm){
 						);
 					} else {
 						console.log('li.ads-ad not found');
-					}
+					}*/
 					//links = document.querySelctorAll('._WGk');
 					//console.log('._WGk');
 					//for (var index = 0; index < links.length; index++) {
