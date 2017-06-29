@@ -11,7 +11,9 @@ var bodyParser = require('body-parser')
 
 var spooky;
 var gGreeting;
-function startSpooky(){
+function startSpooky(searchTerm){
+	var searchTermURL = searchTerm.replaceAll(' ','+');
+	console.log('searchTermURL: '+searchTermURL);
 	spooky = new Spooky({
 			child: {
 				transport: 'http'
@@ -27,7 +29,7 @@ function startSpooky(){
 				throw e;
 			}
 			console.log('start');
-			spooky.start('https://adwords.google.com/apt/anon/AdPreview?aptenv_v2=ZG9tYWluPXd3dy5nb29nbGUuY29tLGxhbmc9ZW4sbG9jPTEwMjMxOTF8VVMscGxhdD1ERVNLVE9Q&st=Debt+consolidation&run=true',function(){
+			spooky.start('https://adwords.google.com/apt/anon/AdPreview?aptenv_v2=ZG9tYWluPXd3dy5nb29nbGUuY29tLGxhbmc9ZW4sbG9jPTEwMjMxOTF8VVMscGxhdD1ERVNLVE9Q&st='+searchTermURL+'&run=true',function(){
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
 					console.log('iframe exists');
 				} else {
@@ -76,7 +78,7 @@ app.post('/', function(request, response) {
     console.log('get');
 	console.log('body: '+request.body);
 	console.log('searchterm: '+request.body.searchterm);
-    startSpooky();
+    startSpooky(request.body.searchterm);
     response.send(gGreeting);
 });
 
