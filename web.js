@@ -70,11 +70,12 @@ function startSpooky(){
 }
 
 app.use(express.logger());
-app.use(bodyParser.json() );
+app.use( bodyParser.json() );
 app.use(express.json());
 app.post('/', function(request, response) {
     console.log('get');
-    console.log('body: '+request.body);
+	console.log('body: '+request.body);
+	console.log('searchterm: '+request.body.searchterm);
     startSpooky();
     response.send(gGreeting);
 });
