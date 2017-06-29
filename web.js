@@ -12,7 +12,7 @@ var bodyParser = require('body-parser')
 var spooky;
 var gGreeting;
 function startSpooky(searchTerm){
-	var searchTermURL = searchTerm.replaceAll(' ','+');
+	var searchTermURL = JSON.stringify(searchTerm).replace(/ /g,'+');
 	console.log('searchTermURL: '+searchTermURL);
 	spooky = new Spooky({
 			child: {
@@ -78,7 +78,7 @@ app.post('/', function(request, response) {
     console.log('get');
 	console.log('body: '+request.body);
 	console.log('searchterm: '+request.body.searchterm);
-    startSpooky(JSON.stringify(request.body.searchterm));
+    startSpooky(request.body.searchterm);
     response.send(gGreeting);
 });
 
