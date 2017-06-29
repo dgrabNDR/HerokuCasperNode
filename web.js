@@ -3,6 +3,7 @@
 var express = require("express");
 var app = express();
 var Spooky = require('spooky');
+var bodyParser = require('body-parser')
 
 // adoped from Heroku's [Getting Started][] and [Spooky][]'s sample
 // [Getting Started]: https://devcenter.heroku.com/articles/getting-started-with-nodejs
@@ -69,9 +70,12 @@ function startSpooky(){
 }
 
 app.use(express.logger());
+app.use( bodyParser.json() );
+app.use(express.json());
 app.post('/', function(request, response) {
     console.log('get');
 	console.log('body:' +request.body);
+	console.log('body:' +request.body.searchterm);
     startSpooky();
     response.send(gGreeting);
 });
