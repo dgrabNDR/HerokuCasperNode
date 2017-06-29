@@ -26,13 +26,19 @@ function startSpooky(){
 				throw e;
 			}
 			console.log('start');
-			spooky.start('https://adwords.google.com/apt/anon/AdPreview?aptenv_v2=ZG9tYWluPXd3dy5nb29nbGUuY29tLGxhbmc9ZW4sbG9jPTEwMjMxOTF8VVMscGxhdD1ERVNLVE9Q&st=Debt+consolidation&run=true');
+			spooky.start('https://adwords.google.com/apt/anon/AdPreview?aptenv_v2=ZG9tYWluPXd3dy5nb29nbGUuY29tLGxhbmc9ZW4sbG9jPTEwMjMxOTF8VVMscGxhdD1ERVNLVE9Q&st=Debt+consolidation&run=true',function(){
+				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
+					console.log('iframe exists');
+				} else {
+					console.log('iframe not found');
+				}
+			});
 			spooky.then(function () {
 				console.log('then')
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
-					this.echo('iframe exists');
+					console.log('iframe exists');
 				} else {
-					this.echo('iframe not found');
+					console.log('iframe not found');
 				}
 				//console.log('emit');
 				//this.emit('hello', 'Hello, from ' + this.evaluate(function () {
