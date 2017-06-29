@@ -69,14 +69,9 @@ function startSpooky(){
 }
 
 app.use(express.logger());
-app.get('/', function(request, response) {
-    console.log('get');
-    startSpooky();
-    response.send(gGreeting);
-});
 app.post('/', function(request, response) {
-    console.log('post');
-	console.log(request);
+    console.log('get');
+	console.log(request.body);
     startSpooky();
     response.send(gGreeting);
 });
