@@ -28,6 +28,7 @@ function startSpooky(){
 			console.log('start');
 			spooky.start('https://adwords.google.com/apt/anon/AdPreview?aptenv_v2=ZG9tYWluPXd3dy5nb29nbGUuY29tLGxhbmc9ZW4sbG9jPTEwMjMxOTF8VVMscGxhdD1ERVNLVE9Q&st=Debt+consolidation&run=true');
 			spooky.then(function () {
+				console.log('then')
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
 					this.echo('iframe exists');
 				} else {
