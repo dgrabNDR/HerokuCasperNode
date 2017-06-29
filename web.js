@@ -9,6 +9,7 @@ var Spooky = require('spooky');
 // [Spooky]: https://github.com/WaterfallEngineering/SpookyJS
 
 var spooky;
+var gGreeting;
 function startSpooky(){
 	spooky = new Spooky({
 			child: {
@@ -53,7 +54,7 @@ function startSpooky(){
 		console.log(line);
 	});
 	*/
-	var gGreeting = 'Hello World';
+	gGreeting = 'Hello World';
 
 	spooky.on('hello', function (greeting) {
 		console.log('>>>>>>>>>>>>>>>> IT WORKS! <<<<<<<<<<<<<<<<');
