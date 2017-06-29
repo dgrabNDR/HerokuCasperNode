@@ -78,7 +78,7 @@ app.post('/', function(request, response) {
     console.log('get');
 	console.log('body: '+request.body);
 	console.log('searchterm: '+request.body.searchterm);
-    startSpooky(request.body.searchterm);
+    startSpooky(JSON.stringify(request.body.searchterm));
     response.send(gGreeting);
 });
 
