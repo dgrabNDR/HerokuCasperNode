@@ -22,9 +22,8 @@ var spooky = new Spooky({
             e.details = err;
             throw e;
         }
-
-        spooky.start(
-            console.log('start');
+        console.log('start');
+        spooky.start(            
             'http://en.wikipedia.org/wiki/Spooky_the_Tuff_Little_Ghost');
         spooky.then(function () {
             console.log('emit');
