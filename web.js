@@ -8,36 +8,38 @@ var Spooky = require('spooky');
 // [Getting Started]: https://devcenter.heroku.com/articles/getting-started-with-nodejs
 // [Spooky]: https://github.com/WaterfallEngineering/SpookyJS
 
-var spooky = new Spooky({
-        child: {
-            transport: 'http'
-        },
-        casper: {
-            logLevel: 'debug',
-            verbose: true
-        }
-    }, function (err) {
-        if (err) {
-            e = new Error('Failed to initialize SpookyJS');
-            e.details = err;
-            throw e;
-        }
-        console.log('start');
-        spooky.start('http://en.wikipedia.org/wiki/Spooky_the_Tuff_Little_Ghost');
-        spooky.then(function () {
-            console.log('emit');
-            this.emit('hello', 'Hello, from ' + this.evaluate(function () {
-                return document.title;
-            }));
-            
-        });
-        spooky.run();
-    });
-
+var spooky;
+function startSpooky(){
+	spooky = new Spooky({
+			child: {
+				transport: 'http'
+			},
+			casper: {
+				logLevel: 'debug',
+				verbose: true
+			}
+		}, function (err) {
+			if (err) {
+				e = new Error('Failed to initialize SpookyJS');
+				e.details = err;
+				throw e;
+			}
+			console.log('start');
+			spooky.start('http://en.wikipedia.org/wiki/Spooky_the_Tuff_Little_Ghost');
+			spooky.then(function () {
+				console.log('emit');
+				this.emit('hello', 'Hello, from ' + this.evaluate(function () {
+					return document.title;
+				}));
+				
+			});
+			spooky.run();
+		});
+}
 spooky.on('error', function (e, stack) {
     console.log('error');
     console.error(e);
-
+//test
     if (stack) {
         console.log(stack);
     }
@@ -69,13 +71,7 @@ spooky.on('log', function (log) {
 app.use(express.logger());
 app.get('/', function(request, response) {
     console.log('get');
-    spooky.start('http://en.wikipedia.org/wiki/Spooky_the_Tuff_Little_Ghost');
-    spooky.then(function () {
-         console.log('emit');
-         this.emit('hello', 'Hello, from ' + this.evaluate(function () {
-              return document.title;
-         }));
-    });
+    startSpooky();
     response.send(gGreeting);
 });
 
