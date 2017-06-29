@@ -33,10 +33,23 @@ function startSpooky(searchTerm){
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
 					console.log('iframe exists');
 					console.log('.ads-visurl');
-					var links = document.querySelectorAll('.ads-visurl');
-					console.log(links);
-					for (var index = 0; index < links.length; index++) {
-						console.log(links[index]);
+					if (this.exists('.ads-visurl')) {
+						console.log('.ads-visurl exists');
+						var links = document.querySelectorAll('.ads-visurl');
+						console.log(links.length);
+						
+						for (var index = 0; index < links.length; index++) {
+							console.log(links[index]);
+						}
+						
+						links.forEach( 
+						  function(value, key, listObj) { 
+							console.log(value + ' ' + key + "/" + this); 
+						  },
+						  "myThisArg"
+						);
+					} else {
+						console.log('.ads-visurl not found');
 					}
 					//links = document.querySelctorAll('._WGk');
 					//console.log('._WGk');
