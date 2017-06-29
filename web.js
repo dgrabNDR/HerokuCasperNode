@@ -32,6 +32,10 @@ function startSpooky(searchTerm){
 			spooky.start('https://adwords.google.com/apt/anon/AdPreview?aptenv_v2=ZG9tYWluPXd3dy5nb29nbGUuY29tLGxhbmc9ZW4sbG9jPTEwMjMxOTF8VVMscGxhdD1ERVNLVE9Q&st='+searchTermURL+'&run=true',function(){
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
 					console.log('iframe exists');
+					var links = document.querySelectorAll('.ads-visurl');
+					console.log(links);
+					links = document.querySelectorAll('._WGk');
+					console.log(links);
 				} else {
 					console.log('iframe not found');
 				}
@@ -75,11 +79,10 @@ app.use(express.logger());
 app.use( bodyParser.json() );
 app.use(express.json());
 app.post('/', function(request, response) {
-    console.log('get');
-	console.log('body: '+request.body);
+    console.log('app.post');
 	console.log('searchterm: '+request.body.searchterm);
     startSpooky(request.body.searchterm);
-    response.send(gGreeting);
+    //response.send(gGreeting);
 });
 
 var port = process.env.PORT || 5000;
