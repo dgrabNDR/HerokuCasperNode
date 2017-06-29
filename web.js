@@ -4,7 +4,7 @@ var express = require("express");
 var app = express();
 var Spooky = require('spooky');
 var bodyParser = require('body-parser')
-var $j = require('jquery')
+var jquery = require('jquery')
 
 // adoped from Heroku's [Getting Started][] and [Spooky][]'s sample
 // [Getting Started]: https://devcenter.heroku.com/articles/getting-started-with-nodejs
@@ -30,10 +30,11 @@ function startSpooky(searchTerm){
 				throw e;
 			}
 			console.log('start');
+			$ = jQuery.noConflict();
 			spooky.start('https://adwords.google.com/apt/anon/AdPreview?aptenv_v2=ZG9tYWluPXd3dy5nb29nbGUuY29tLGxhbmc9ZW4sbG9jPTEwMjMxOTF8VVMscGxhdD1ERVNLVE9Q&st='+searchTermURL+'&run=true',function(){
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
 					console.log('iframe exists');
-					console.log('iframe: '+$j('.aw-diagnostic-preview-iframe-v2').size());
+					console.log($('.aw-diagnostic-preview-iframe-v2').size());
 					var iframe = document.querySelector('.aw-diagnostic-preview-iframe-v2');
 					var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
 					var links = iframeDocument.querySelectorAll('li.ads-ad');
