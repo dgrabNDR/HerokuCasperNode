@@ -26,12 +26,17 @@ function startSpooky(){
 				throw e;
 			}
 			console.log('start');
-			spooky.start('http://en.wikipedia.org/wiki/Spooky_the_Tuff_Little_Ghost');
+			spooky.start('https://adwords.google.com/apt/anon/AdPreview?aptenv_v2=ZG9tYWluPXd3dy5nb29nbGUuY29tLGxhbmc9ZW4sbG9jPTEwMjMxOTF8VVMscGxhdD1ERVNLVE9Q&st=Debt+consolidation&run=true');
 			spooky.then(function () {
-				console.log('emit');
-				this.emit('hello', 'Hello, from ' + this.evaluate(function () {
-					return document.title;
-				}));
+				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
+					this.echo('iframe exists');
+				} else {
+					this.echo('iframe not found');
+				}
+				//console.log('emit');
+				//this.emit('hello', 'Hello, from ' + this.evaluate(function () {
+				//	return document.title;
+				//}));
 				
 			});
 			spooky.run();
