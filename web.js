@@ -33,9 +33,9 @@ function startSpooky(searchTerm){
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
 					console.log('iframe exists');
 					console.log('.ads-visurl');
-					if (this.exists('.ads-visurl')) {
-						console.log('.ads-visurl exists');
-						var links = document.querySelectorAll('.ads-visurl');
+					if (this.exists('li.ads-ad')) {
+						console.log('li.ads-ad exists');
+						var links = document.querySelectorAll('li.ads-ad');
 						console.log(links.length);
 						
 						for (var index = 0; index < links.length; index++) {
@@ -49,7 +49,7 @@ function startSpooky(searchTerm){
 						  "myThisArg"
 						);
 					} else {
-						console.log('.ads-visurl not found');
+						console.log('li.ads-ad not found');
 					}
 					//links = document.querySelctorAll('._WGk');
 					//console.log('._WGk');
