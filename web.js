@@ -34,14 +34,15 @@ function startSpooky(searchTerm){
 					console.log('iframe exists');
 					console.log('.ads-visurl');
 					var links = document.querySelectorAll('.ads-visurl');
+					console.log(links);
 					for (var index = 0; index < links.length; index++) {
 						console.log(links[index]);
 					}
-					links = document.querySelctorAll('._WGk');
-					console.log('._WGk');
-					for (var index = 0; index < links.length; index++) {
-						console.log(links[index]);
-					}
+					//links = document.querySelctorAll('._WGk');
+					//console.log('._WGk');
+					//for (var index = 0; index < links.length; index++) {
+					//	console.log(links[index]);
+					//}
 				} else {
 					console.log('iframe not found');
 				}
