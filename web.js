@@ -71,7 +71,7 @@ function startSpooky(){
 app.use(express.logger());
 app.post('/', function(request, response) {
     console.log('get');
-	console.log(request.body);
+	console.log('body:' +request.body);
     startSpooky();
     response.send(gGreeting);
 });
