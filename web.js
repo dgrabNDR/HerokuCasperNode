@@ -35,6 +35,7 @@ var spooky = new Spooky({
     });
 
 spooky.on('error', function (e, stack) {
+    console.log('error');
     console.error(e);
 
     if (stack) {
@@ -73,6 +74,5 @@ app.get('/', function(request, response) {
 
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
-    console.log('port');
     console.log("Listening on " + port);
 });
