@@ -33,17 +33,6 @@ function startSpooky(){
 					console.log('iframe not found');
 				}
 			});
-			spooky.then(function () {
-				console.log('then')
-				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
-					console.log('iframe exists');
-				} else {
-					console.log('iframe not found');
-				}
-				//console.log('emit');
-				//this.emit('hello', 'Hello, from ' + this.evaluate(function () {
-				//	return document.title;
-				//}));
 				
 			});
 			spooky.run();
@@ -52,7 +41,7 @@ function startSpooky(){
 	spooky.on('error', function (e, stack) {
 		console.log('error');
 		console.error(e);
-	//test
+
 		if (stack) {
 			console.log(stack);
 		}
@@ -78,12 +67,13 @@ function startSpooky(){
 		if (log.space === 'remote') {
 			console.log(log.message.replace(/ \- .*/, ''));
 		}
-});
+	});
 }
 
 app.use(express.logger());
 app.get('/', function(request, response) {
     console.log('get');
+	console.log(request);
     startSpooky();
     response.send(gGreeting);
 });
