@@ -74,6 +74,7 @@ app.get('/', function(request, response) {
          console.log('emit');
          this.emit('hello', 'Hello, from ' + this.evaluate(function () {
               return document.title;
+         }));
     });
     response.send(gGreeting);
 });
