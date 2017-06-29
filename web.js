@@ -33,8 +33,6 @@ function startSpooky(){
 					console.log('iframe not found');
 				}
 			});
-				
-			});
 			spooky.run();
 		});
 
