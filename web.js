@@ -23,8 +23,7 @@ var spooky = new Spooky({
             throw e;
         }
         console.log('start');
-        spooky.start(            
-            'http://en.wikipedia.org/wiki/Spooky_the_Tuff_Little_Ghost');
+        spooky.start('http://en.wikipedia.org/wiki/Spooky_the_Tuff_Little_Ghost');
         spooky.then(function () {
             console.log('emit');
             this.emit('hello', 'Hello, from ' + this.evaluate(function () {
@@ -70,13 +69,12 @@ spooky.on('log', function (log) {
 app.use(express.logger());
 app.get('/', function(request, response) {
     console.log('get');
-        spooky.start(            
-            'http://en.wikipedia.org/wiki/Spooky_the_Tuff_Little_Ghost');
-        spooky.then(function () {
-            console.log('emit');
-            this.emit('hello', 'Hello, from ' + this.evaluate(function () {
-                return document.title;
-            }));
+    spooky.start('http://en.wikipedia.org/wiki/Spooky_the_Tuff_Little_Ghost');
+    spooky.then(function () {
+         console.log('emit');
+         this.emit('hello', 'Hello, from ' + this.evaluate(function () {
+              return document.title;
+    });
     response.send(gGreeting);
 });
 
