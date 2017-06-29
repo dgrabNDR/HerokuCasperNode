@@ -29,7 +29,7 @@ var spooky = new Spooky({
             this.emit('hello', 'Hello, from ' + this.evaluate(function () {
                 return document.title;
             }));
-                this.emit('>>>>>>>>>>>>>>>> IT WORKS! <<<<<<<<<<<<<<<<');
+                this.emit('hey','>>>>>>>>>>>>>>>> IT WORKS! <<<<<<<<<<<<<<<<');
         });
         spooky.run();
     });
