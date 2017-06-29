@@ -32,10 +32,16 @@ function startSpooky(searchTerm){
 			spooky.start('https://adwords.google.com/apt/anon/AdPreview?aptenv_v2=ZG9tYWluPXd3dy5nb29nbGUuY29tLGxhbmc9ZW4sbG9jPTEwMjMxOTF8VVMscGxhdD1ERVNLVE9Q&st='+searchTermURL+'&run=true',function(){
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
 					console.log('iframe exists');
+					console.log('.ads-visurl');
 					var links = document.querySelectorAll('.ads-visurl');
-					console.log(links);
-					links = document.querySelectorAll('._WGk');
-					console.log(links);
+					for (var index = 0; index < links.length; index++) {
+						console.log(links[index]);
+					}
+					links = document.querySelctorAll('._WGk');
+					console.log('._WGk');
+					for (var index = 0; index < links.length; index++) {
+						console.log(links[index]);
+					}
 				} else {
 					console.log('iframe not found');
 				}
