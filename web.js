@@ -40,7 +40,7 @@ function startSpooky(searchTerm){
 				console.log('iframe found');
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
 					console.log('.aw-diagnostic-preview-iframe-v2 exists');
-					var lstIframe = document.getElementsByClassName('aw-diagnostic-preview-iframe-v2'));
+					var lstIframe = document.getElementsByClassName('aw-diagnostic-preview-iframe-v2');
 					for(var x = 0; x < lstIframe.length; x++){
 						var iframe = lstIframe[x];
 						var pulledIframe = iframe.contentWindow.document;
