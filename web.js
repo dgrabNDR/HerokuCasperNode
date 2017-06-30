@@ -35,7 +35,7 @@ function startSpooky(searchTerm){
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
 					console.log('iframe exists');
 					//console.log($('.aw-diagnostic-preview-iframe-v2').size());
-					console.log(this.getHtml('.aw-diagnostic-preview-iframe-v2'));
+					/*console.log(this.getHtml('.aw-diagnostic-preview-iframe-v2'));
 					console.log(document.querySelector('.aw-diagnostic-preview-iframe-v2'));
 					console.log(this.querySelector('.aw-diagnostic-preview-iframe-v2'));
 					
@@ -44,7 +44,7 @@ function startSpooky(searchTerm){
 					console.log(links.length);
 					for (var index = 0; index < links.length; index++) {
 						console.log(links[index]);
-					}
+					}*/
 					/*if (this.exists('li.ads-ad')) {
 						console.log('li.ads-ad exists');
 						var links = document.querySelectorAll('li.ads-ad');
@@ -75,6 +75,7 @@ function startSpooky(searchTerm){
 			
 			spooky.waitForSelector('.aw-diagnostic-preview-iframe-v2', function(){
 				console.log('iframe found');
+				console.log(document.querySelector('.aw-diagnostic-preview-iframe-v2'));
 			});
 			spooky.run();
 		});
