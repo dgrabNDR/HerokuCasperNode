@@ -34,8 +34,9 @@ function startSpooky(searchTerm){
 			spooky.start('https://adwords.google.com/apt/anon/AdPreview?aptenv_v2=ZG9tYWluPXd3dy5nb29nbGUuY29tLGxhbmc9ZW4sbG9jPTEwMjMxOTF8VVMscGxhdD1ERVNLVE9Q&st='+searchTermURL+'&run=true',function(){
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
 					console.log('iframe exists');
-					console.log($('.aw-diagnostic-preview-iframe-v2').size());
+					//console.log($('.aw-diagnostic-preview-iframe-v2').size());
 					var iframe = document.querySelector('.aw-diagnostic-preview-iframe-v2');
+					console.log(iframe);
 					var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
 					var links = iframeDocument.querySelectorAll('li.ads-ad');
 					console.log(links.length);
