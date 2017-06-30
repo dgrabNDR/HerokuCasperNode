@@ -35,8 +35,9 @@ function startSpooky(searchTerm){
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
 					console.log('iframe exists');
 					//console.log($('.aw-diagnostic-preview-iframe-v2').size());
-					var iframe = document.querySelector('.aw-diagnostic-preview-iframe-v2');
-					console.log(iframe);
+					console.log(document.querySelector('.aw-diagnostic-preview-iframe-v2'));
+					console.log(this.querySelector('.aw-diagnostic-preview-iframe-v2'));
+					console.log(this.getHtml('.aw-diagnostic-preview-iframe-v2'));
 					var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
 					var links = iframeDocument.querySelectorAll('li.ads-ad');
 					console.log(links.length);
