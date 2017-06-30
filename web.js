@@ -31,51 +31,21 @@ function startSpooky(searchTerm){
 			}
 			console.log('start');
 			//$ = jQuery.noConflict();
-			spooky.start('https://adwords.google.com/apt/anon/AdPreview?aptenv_v2=ZG9tYWluPXd3dy5nb29nbGUuY29tLGxhbmc9ZW4sbG9jPTEwMjMxOTF8VVMscGxhdD1ERVNLVE9Q&st='+searchTermURL+'&run=true',function(){
-				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
-					console.log('iframe exists');
-					//console.log($('.aw-diagnostic-preview-iframe-v2').size());
-					/*console.log(this.getHtml('.aw-diagnostic-preview-iframe-v2'));
-					console.log(document.querySelector('.aw-diagnostic-preview-iframe-v2'));
-					console.log(this.querySelector('.aw-diagnostic-preview-iframe-v2'));
+			spooky.start('https://adwords.google.com/apt/anon/AdPreview?aptenv_v2=ZG9tYWluPXd3dy5nb29nbGUuY29tLGxhbmc9ZW4sbG9jPTEwMjMxOTF8VVMscGxhdD1ERVNLVE9Q&st='+searchTermURL+'&run=true',function(){				
+				console.log('Spooky started');
 					
-					var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-					var links = iframeDocument.querySelectorAll('li.ads-ad');
-					console.log(links.length);
-					for (var index = 0; index < links.length; index++) {
-						console.log(links[index]);
-					}*/
-					/*if (this.exists('li.ads-ad')) {
-						console.log('li.ads-ad exists');
-						var links = document.querySelectorAll('li.ads-ad');
-						console.log(links.length);
-						
-						for (var index = 0; index < links.length; index++) {
-							console.log(links[index]);
-						}
-						
-						links.forEach( 
-						  function(value, key, listObj) { 
-							console.log(value + ' ' + key + "/" + this); 
-						  },
-						  "myThisArg"
-						);
-					} else {
-						console.log('li.ads-ad not found');
-					}*/
-					//links = document.querySelctorAll('._WGk');
-					//console.log('._WGk');
-					//for (var index = 0; index < links.length; index++) {
-					//	console.log(links[index]);
-					//}
-				} else {
-					console.log('iframe not found');
-				}
 			});
 			
 			spooky.waitForSelector('.aw-diagnostic-preview-iframe-v2', function(){
 				console.log('iframe found');
-				console.log(document.querySelector('.aw-diagnostic-preview-iframe-v2'));
+				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
+					console.log('exists');
+					console.log(document.querySelector('.aw-diagnostic-preview-iframe-v2'));
+					console.log(this.querySelector('.aw-diagnostic-preview-iframe-v2'));
+					console.log(this.getHTML('.aw-diagnostic-preview-iframe-v2', true));
+				} else {
+					console.log('doesnt exist');
+				}
 			});
 			spooky.run();
 		});
