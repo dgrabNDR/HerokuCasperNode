@@ -41,6 +41,7 @@ function startSpooky(searchTerm){
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
 					console.log('.aw-diagnostic-preview-iframe-v2 exists');
 					var lstIframe = document.getElementsByClassName('aw-diagnostic-preview-iframe-v2');
+					console.log(lstIframe.length);
 					for(var x = 0; x < lstIframe.length; x++){
 						var iframe = lstIframe[x];
 						console.log(iframe);
