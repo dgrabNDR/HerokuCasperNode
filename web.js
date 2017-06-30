@@ -73,7 +73,7 @@ function startSpooky(searchTerm){
 				}
 			});
 			
-			spooky.waitForSelector(function(){'.aw-diagnostic-preview-iframe-v2'){
+			spooky.waitForSelector(function(){'.aw-diagnostic-preview-iframe-v2')
 				console.log('iframe found');
 			});
 			spooky.run();
