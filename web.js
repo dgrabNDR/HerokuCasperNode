@@ -35,15 +35,16 @@ function startSpooky(searchTerm){
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
 					console.log('iframe exists');
 					//console.log($('.aw-diagnostic-preview-iframe-v2').size());
-					//console.log(document.querySelector('.aw-diagnostic-preview-iframe-v2'));
-					//console.log(this.querySelector('.aw-diagnostic-preview-iframe-v2'));
 					console.log(this.getHtml('.aw-diagnostic-preview-iframe-v2'));
-					//var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-					//var links = iframeDocument.querySelectorAll('li.ads-ad');
-					//console.log(links.length);
-					//for (var index = 0; index < links.length; index++) {
-					//	console.log(links[index]);
-					//}
+					console.log(document.querySelector('.aw-diagnostic-preview-iframe-v2'));
+					console.log(this.querySelector('.aw-diagnostic-preview-iframe-v2'));
+					
+					var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+					var links = iframeDocument.querySelectorAll('li.ads-ad');
+					console.log(links.length);
+					for (var index = 0; index < links.length; index++) {
+						console.log(links[index]);
+					}
 					/*if (this.exists('li.ads-ad')) {
 						console.log('li.ads-ad exists');
 						var links = document.querySelectorAll('li.ads-ad');
@@ -71,6 +72,10 @@ function startSpooky(searchTerm){
 					console.log('iframe not found');
 				}
 			});
+			
+			spooky.waitForSelector('.aw-diagnostic-preview-iframe-v2'){
+				console.log('iframe found');
+			}
 			spooky.run();
 		});
 
