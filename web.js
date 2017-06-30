@@ -41,7 +41,8 @@ function startSpooky(searchTerm){
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
 					console.log('exists');
 					console.log(document.querySelector('.aw-diagnostic-preview-iframe-v2'));
-					console.log(this.querySelector('.aw-diagnostic-preview-iframe-v2'));
+					console.log(this.getElementAttribute('.aw-diagnostic-preview-iframe-v2','class'));
+					console.log(this.captureSelector('.aw-diagnostic-preview-iframe-v2'));
 					console.log(this.getHTML('.aw-diagnostic-preview-iframe-v2', true));
 				} else {
 					console.log('doesnt exist');
