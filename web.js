@@ -39,9 +39,12 @@ function startSpooky(searchTerm){
 			spooky.waitForSelector('.aw-diagnostic-preview-iframe-v2', function(){
 				console.log('iframe found');
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
-					console.log('exists');
-					console.log(this.getElementAttribute('.aw-diagnostic-preview-iframe-v2','class'));
-					console.log(document.getElementsByClassName('aw-diagnostic-preview-iframe-v2'));
+					console.log('.aw-diagnostic-preview-iframe-v2 exists');
+					var lstIframe = document.getElementsByClassName('aw-diagnostic-preview-iframe-v2'));
+					for(var x = 0; x < lstIframe.length; x++){
+						var iframe = lstIframe[x];
+						var pulledIframe = iframe.contentWindow.document;
+					}
 					
 				} else {
 					console.log('doesnt exist');
