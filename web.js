@@ -43,8 +43,9 @@ function startSpooky(searchTerm){
 					var iFrameName = this.getElementsAttribute('.aw-diagnostic-preview-iframe-v2','name');
 					console.log('iFrameName: '+iFrameName);
 					
-					var FrameURL = this.withFrame(0, function(){
+					var FrameURL = this.withFrame(iFrameName, function(){
 						console.log('here');
+						this.test.assertVisible('#searchform')
 						return this.src;
 					});
 					console.log('FrameURL: '+FrameURL);
