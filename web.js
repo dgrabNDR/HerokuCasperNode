@@ -40,6 +40,10 @@ function startSpooky(searchTerm){
 				console.log('iframe found');
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
 					console.log('.aw-diagnostic-preview-iframe-v2 exists!');
+					casper.withFrame('.aw-diagnostic-preview-iframe-v2'), function(){
+						console.log(this.getCurrentUrl());
+					});
+					/*
 					var iFrameClass = this.getElementsAttribute('.aw-diagnostic-preview-iframe-v2','class');
 					console.log('iFrameClass: '+iFrameClass);
 					var iFrameName = this.getElementsAttribute('.aw-diagnostic-preview-iframe-v2','name');
@@ -49,7 +53,7 @@ function startSpooky(searchTerm){
 						return theQuery.src;
 					});
 					console.log('iFrameSrc: '+JSON.stringify(iFrameSrc));
-/*
+
 					var adClasses = this.evaluate(function(){
 						var theQuery = document.querySelector('.aw-diagnostic-preview-iframe-v2');
 						//var theIframe = theQuery.contentDocument.body.innerHTML || theQuery.contentWindow.document.body.innerHTML;
