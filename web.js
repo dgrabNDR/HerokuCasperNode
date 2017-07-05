@@ -40,10 +40,13 @@ function startSpooky(searchTerm){
 				console.log('iframe found');
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
 					console.log('.aw-diagnostic-preview-iframe-v2 exists!');
+					var elemName;
 					var iframe = this.evaluate(function(){
+						elemName = this.getElementsAttribute('.aw-diagnostic-preview-iframe-v2','name');
 						var theIframe = document.querySelector('.aw-diagnostic-preview-iframe-v2');
-						return (theIframe.contentDocument) ? theIframe.contentDocument : theIframe.contentWindow.document;
+						return theIframe.contentDocument || theIframe.contentWindow.document;
 					});
+					console.log(elemName);
 					console.log(iframe);
 					var ads = iframe.getElementsByClassName('ads-visurl');
 					console.log('ads: '+ads);
