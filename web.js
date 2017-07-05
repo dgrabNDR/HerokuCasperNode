@@ -45,7 +45,7 @@ function startSpooky(searchTerm){
 					var iFrameName = this.getElementsAttribute('.aw-diagnostic-preview-iframe-v2','name');
 					console.log('iFrameName: '+iFrameName);
 					var iFrameSrc = this.getElementInfo('.aw-diagnostic-preview-iframe-v2');
-					console.log('iFrameSrc: '+iFrameSrc);
+					console.log('iFrameSrc: '+JSON.stringify(iFrameSrc));
 /*
 					var adClasses = this.evaluate(function(){
 						var theQuery = document.querySelector('.aw-diagnostic-preview-iframe-v2');
