@@ -40,13 +40,12 @@ function startSpooky(searchTerm){
 				console.log('iframe found');
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
 					console.log('.aw-diagnostic-preview-iframe-v2 exists!');
-					var elemName;
 					var iframe = this.evaluate(function(){
-						elemName = this.getElementsAttribute('.aw-diagnostic-preview-iframe-v2','name');
-						var theIframe = $('.aw-diagnostic-preview-iframe-v2');
-						return theIframe.contentDocument || theIframe.contentWindow.document;
+						var theQuery = document.querySelector('.aw-diagnostic-preview-iframe-v2');
+						var theIframe = theQuery.contentDocument || theQuery.contentWindow.document;
+						var classes = theIframe.getElementsByClassName('ads-visurl');
+						return classes;
 					});
-					console.log('elemName: '+elemName);
 					console.log('iframe: '+iframe);
 					console.log('iframe json: '+JSON.stringify(iframe));
 					//var ads = iframe.getElementsByClassName('ads-visurl');
