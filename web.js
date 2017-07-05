@@ -42,7 +42,7 @@ function startSpooky(searchTerm){
 					console.log('.aw-diagnostic-preview-iframe-v2 exists!');
 					var iframe = this.evaluate(function(){
 						return document.querySelector('.aw-diagnostic-preview-iframe-v2');
-					}
+					});
 					console.log('iframe: '+iframe);
 					//var thePage = this.getPageContent();
 					//console.log('thePage: '+thePage);
@@ -57,7 +57,7 @@ function startSpooky(searchTerm){
 						var iframe = lstIframe[x];
 						console.log(iframe);
 						var pulledIframe = iframe.contentWindow.document;
-					}//
+					}
 					
 				} else {
 					console.log('doesnt exist');
