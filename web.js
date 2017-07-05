@@ -44,7 +44,7 @@ function startSpooky(searchTerm){
 						return document.querySelector('.aw-diagnostic-preview-iframe-v2');
 					});
 					console.log('iframe: '+iframe);
-					console.log('iframe: '+JSON.stringify(iframe,null,4));
+					console.log('iframe: '+JSON.stringify(iframe));
 					//var thePage = this.getPageContent();
 					console.log('iframe.length: '+iframe.length);
 					var lstIframe = [];
