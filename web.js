@@ -46,17 +46,18 @@ function startSpooky(searchTerm){
 						var theIframe = document.querySelector('.aw-diagnostic-preview-iframe-v2');
 						return theIframe.contentDocument || theIframe.contentWindow.document;
 					});
-					console.log(elemName);
-					console.log(iframe);
-					var ads = iframe.getElementsByClassName('ads-visurl');
-					console.log('ads: '+ads);
+					console.log('elemName: '+elemName);
+					console.log('iframe: '+iframe);
+					console.log('iframe json: '+json.stringify(iframe));
+					//var ads = iframe.getElementsByClassName('ads-visurl');
+					//console.log('ads: '+ads);
 					//var thePage = this.getPageContent();
-					console.log('iframe.length: '+iframe.length);
-					var lstIframe = [];
-					for(var x = 0; x < iframe.length; x++){
-						lstIframe[x] = iframe[x];
-					}
-					console.log('lstIframe.length: '+lstIframe.length);
+					//console.log('iframe.length: '+iframe.length);
+					//var lstIframe = [];
+					//for(var x = 0; x < iframe.length; x++){
+					//	lstIframe[x] = iframe[x];
+					//}
+					//console.log('lstIframe.length: '+lstIframe.length);
 					
 				} else {
 					console.log('doesnt exist');
