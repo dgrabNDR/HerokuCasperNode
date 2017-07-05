@@ -52,7 +52,7 @@ function startSpooky(searchTerm){
 						var theQuery = document.querySelector('.aw-diagnostic-preview-iframe-v2');
 						var theIframe = theQuery.contentDocument || theQuery.contentWindow.document;
 						var classes = theIframe.getElementsByTagName('li');
-						console.log('adClasses: '+JSON.stringify(adClasses));
+						console.log('classes: '+JSON.stringify(classes));
 						return classes;
 					});
 					console.log('adClasses: '+JSON.stringify(adClasses));
