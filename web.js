@@ -42,9 +42,9 @@ function startSpooky(searchTerm){
 					console.log('.aw-diagnostic-preview-iframe-v2 exists!');
 					var iframe = this.evaluate(function(){
 						var theQuery = document.querySelector('.aw-diagnostic-preview-iframe-v2');
-						return theQuery.contentDocument || theQuery.contentWindow.document;
+						return theQuery.contentDocument.body.innerHTML || theQuery.contentWindow.document.body.innerHTML;
 					});
-					//console.log('iframe: '+JSON.stringify(iframe['childNodes']));
+					console.log('iframe: '+JSON.stringify(iframe));
 					//var classes = iframe.getElementsByTagName('li');
 					//console.log(classes);
 
