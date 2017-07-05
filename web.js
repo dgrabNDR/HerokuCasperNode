@@ -40,7 +40,9 @@ function startSpooky(searchTerm){
 				console.log('iframe found');
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
 					console.log('.aw-diagnostic-preview-iframe-v2 exists!');
-					
+					var iFrameURL = this.getElementsAttribute('.aw-diagnostic-preview-iframe-v2','href');
+					console.log('iFrameURL: '+iFrameURL);
+/*
 					var adClasses = this.evaluate(function(){
 						var theQuery = document.querySelector('.aw-diagnostic-preview-iframe-v2');
 						//var theIframe = theQuery.contentDocument.body.innerHTML || theQuery.contentWindow.document.body.innerHTML;
@@ -52,7 +54,7 @@ function startSpooky(searchTerm){
 					for (var cls in adClasses){
 						console.log(cls);
 					}
-					
+					*/
 					
 				} else {
 					console.log('doesnt exist');
