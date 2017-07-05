@@ -40,20 +40,24 @@ function startSpooky(searchTerm){
 				console.log('iframe found');
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
 					console.log('.aw-diagnostic-preview-iframe-v2 exists!');
-					var iframe = this.evaluate(function(){
+					/*var iframe = this.evaluate(function(){
 						var theQuery = document.querySelector('.aw-diagnostic-preview-iframe-v2');
 						return theQuery.contentDocument || theQuery.contentWindow.document;
 					});
 					console.log('iframe: '+iframe);
-					console.log('iframe.length: '+iframe.length);
+					console.log('iframe.length: '+iframe.length);*/
 					var adClasses = this.evaluate(function(){
 						var theQuery = document.querySelector('.aw-diagnostic-preview-iframe-v2');
 						var theIframe = theQuery.contentDocument || theQuery.contentWindow.document;
 						var classes = theIframe.getElementsByClassName('ads-visurl');
+						
 						return classes;
 					});
 					console.log('adClasses: '+adClasses);
 					console.log('adClasses.length: '+adClasses.length);
+					for each(class in classes){
+						console.log(class);
+					}
 					
 				} else {
 					console.log('doesnt exist');
