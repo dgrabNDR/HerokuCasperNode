@@ -40,14 +40,16 @@ function startSpooky(searchTerm){
 				console.log('iframe found');
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
 					console.log('.aw-diagnostic-preview-iframe-v2 exists!');
-					this.withFrame('.aw-diagnostic-preview-iframe-v2', function(){
+					var iFrameName = this.getElementsAttribute('.aw-diagnostic-preview-iframe-v2','name');
+					console.log('iFrameName: '+iFrameName);
+					
+					this.withFrame(iFrameName, function(){
 						console.log(this.getCurrentUrl());
 					});
 					/*
 					var iFrameClass = this.getElementsAttribute('.aw-diagnostic-preview-iframe-v2','class');
 					console.log('iFrameClass: '+iFrameClass);
-					var iFrameName = this.getElementsAttribute('.aw-diagnostic-preview-iframe-v2','name');
-					console.log('iFrameName: '+iFrameName);
+					
 					var iFrameSrc = this.evaluate(function(){
 						var theQuery = document.querySelector('.aw-diagnostic-preview-iframe-v2');
 						return theQuery.src;
