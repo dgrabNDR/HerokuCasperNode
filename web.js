@@ -43,7 +43,7 @@ function startSpooky(searchTerm){
 					//var lstIframe = document.getElementsByClassName('aw-diagnostic-preview-iframe-v2');
 					var iframe = document.querySelectorAll('.aw-diagnostic-preview-iframe-v2');
 					var lstIframe = [];
-					Array.prototype.map.call(links, function(e) {
+					Array.prototype.map.call(iframe, function(e) {
 						lstIframe.push(e);
 					});
 					console.log(lstIframe.length);
