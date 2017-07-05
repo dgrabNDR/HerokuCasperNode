@@ -55,7 +55,7 @@ function startSpooky(searchTerm){
 					});
 					console.log('adClasses: '+adClasses);
 					console.log('adClasses.length: '+adClasses.length);
-					for (var theclass in classes){
+					for (var theclass in adClasses){
 						console.log(theclass);
 					}
 					
