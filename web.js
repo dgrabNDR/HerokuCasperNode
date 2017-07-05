@@ -55,8 +55,8 @@ function startSpooky(searchTerm){
 					});
 					console.log('adClasses: '+adClasses);
 					console.log('adClasses.length: '+adClasses.length);
-					for (var class of classes){
-						console.log(class);
+					for (var theclass of classes){
+						console.log(theclass);
 					}
 					
 				} else {
@@ -112,4 +112,3 @@ var port = process.env.PORT || 5000;
 app.listen(port, function() {
     console.log("Listening on " + port);
 });
-
