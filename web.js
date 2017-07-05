@@ -44,20 +44,14 @@ function startSpooky(searchTerm){
 						return document.querySelector('.aw-diagnostic-preview-iframe-v2');
 					});
 					console.log('iframe: '+iframe);
+					console.log('iframe: '+JSON.stringify(iframe,null,4));
 					//var thePage = this.getPageContent();
-					//console.log('thePage: '+thePage);
+					console.log('iframe.length: '+iframe.length);
 					var lstIframe = [];
 					for(var x = 0; x < iframe.length; x++){
 						lstIframe[x] = iframe[x];
 					}
 					console.log('lstIframe.length: '+lstIframe.length);
-					var nodeArray = [].slice.call(iframe);
-					console.log('nodeArray.length: '+nodeArray.length);
-					for(var x = 0; x < lstIframe.length; x++){
-						var iframe = lstIframe[x];
-						console.log(iframe);
-						var pulledIframe = iframe.contentWindow.document;
-					}
 					
 				} else {
 					console.log('doesnt exist');
