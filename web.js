@@ -44,22 +44,22 @@ function startSpooky(searchTerm){
 						var theQuery = document.querySelector('.aw-diagnostic-preview-iframe-v2');
 						return theQuery.contentDocument || theQuery.contentWindow.document;
 					});
-					console.log('iframe: '+JSON.stringify(iframe['childNodes']));
+					//console.log('iframe: '+JSON.stringify(iframe['childNodes']));
 					//var classes = iframe.getElementsByTagName('li');
 					//console.log(classes);
 
 					var adClasses = this.evaluate(function(){
 						var theQuery = document.querySelector('.aw-diagnostic-preview-iframe-v2');
 						var theIframe = theQuery.contentDocument || theQuery.contentWindow.document;
-						var classes = theIframe.getElementsByTagName('li');
-						console.log('classes: '+JSON.stringify(classes));
+						var classes = theIframe.querySelectorAll('li');
+						//console.log('classes: '+JSON.stringify(classes));
 						return classes;
 					});
 					console.log('adClasses: '+JSON.stringify(adClasses));
 					for (var cls in adClasses){
 						console.log(cls);
 					}
-					console.log('adClasses.item: '+adClasses.item);
+					
 					
 				} else {
 					console.log('doesnt exist');
