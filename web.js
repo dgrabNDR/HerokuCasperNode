@@ -48,11 +48,12 @@ function startSpooky(searchTerm){
 					for (var cls in iframe){
 						console.log(cls);
 					}
+					console.log(iframe[childNodes]);
 					
 					var adClasses = this.evaluate(function(){
 						var theQuery = document.querySelector('.aw-diagnostic-preview-iframe-v2');
 						var theIframe = theQuery.contentDocument || theQuery.contentWindow.document;
-						var classes = theIframe.querySelector('.ads-visurl');
+						var classes = theIframe.querySelector('li');
 						
 						return classes;
 					});
