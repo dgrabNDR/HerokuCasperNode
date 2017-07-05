@@ -42,12 +42,16 @@ function startSpooky(searchTerm){
 					console.log('.aw-diagnostic-preview-iframe-v2 exists!');
 					var iframe = this.evaluate(function(){
 						var theQuery = document.querySelector('.aw-diagnostic-preview-iframe-v2');
+						return = theQuery.contentDocument || theQuery.contentWindow.document;
+					});
+					console.log('iframe: '+iframe);
+					var adClasses = this.evaluate(function(){
+						var theQuery = document.querySelector('.aw-diagnostic-preview-iframe-v2');
 						var theIframe = theQuery.contentDocument || theQuery.contentWindow.document;
 						var classes = theIframe.getElementsByClassName('ads-visurl');
 						return classes;
 					});
-					console.log('iframe: '+iframe);
-					console.log('iframe json: '+JSON.stringify(iframe));
+					console.log('adClasses: '+adClasses);
 					//var ads = iframe.getElementsByClassName('ads-visurl');
 					//console.log('ads: '+ads);
 					//var thePage = this.getPageContent();
