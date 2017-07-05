@@ -42,7 +42,7 @@ function startSpooky(searchTerm){
 					console.log('.aw-diagnostic-preview-iframe-v2 exists!');
 					var iframe = this.evaluate(function(){
 						var theQuery = document.querySelector('.aw-diagnostic-preview-iframe-v2');
-						return = theQuery.contentDocument || theQuery.contentWindow.document;
+						return theQuery.contentDocument || theQuery.contentWindow.document;
 					});
 					console.log('iframe: '+iframe);
 					var adClasses = this.evaluate(function(){
@@ -52,15 +52,7 @@ function startSpooky(searchTerm){
 						return classes;
 					});
 					console.log('adClasses: '+adClasses);
-					//var ads = iframe.getElementsByClassName('ads-visurl');
-					//console.log('ads: '+ads);
-					//var thePage = this.getPageContent();
-					//console.log('iframe.length: '+iframe.length);
-					//var lstIframe = [];
-					//for(var x = 0; x < iframe.length; x++){
-					//	lstIframe[x] = iframe[x];
-					//}
-					//console.log('lstIframe.length: '+lstIframe.length);
+
 					
 				} else {
 					console.log('doesnt exist');
