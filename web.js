@@ -42,7 +42,7 @@ function startSpooky(searchTerm){
 					console.log('.aw-diagnostic-preview-iframe-v2 exists!');
 					var iframe = this.evaluate(function(){
 						var theIframe = document.querySelector('.aw-diagnostic-preview-iframe-v2')
-						console.log(theIframe);
+						console.log('theIframe: '+theIframe);
 						return theIframe;
 					});
 					console.log('iframe: '+iframe);
