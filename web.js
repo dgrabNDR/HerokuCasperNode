@@ -48,12 +48,14 @@ function startSpooky(searchTerm){
 					for (var cls in iframe){
 						console.log(cls);
 					}
-					console.log(iframe['childNodes']);
-					
+					console.log('childNodes>>>>>>>>>>>>');
+					for (var cls in iframe['childNodes']){
+						console.log(cls);
+					}
 					var adClasses = this.evaluate(function(){
 						var theQuery = document.querySelector('.aw-diagnostic-preview-iframe-v2');
 						var theIframe = theQuery.contentDocument || theQuery.contentWindow.document;
-						var classes = theIframe.querySelector('li');
+						var classes = theIframe.getElementsByTagName('li');
 						
 						return classes;
 					});
