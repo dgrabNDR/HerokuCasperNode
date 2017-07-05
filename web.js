@@ -45,6 +45,7 @@ function startSpooky(searchTerm){
 						return theQuery.contentDocument || theQuery.contentWindow.document;
 					});
 					console.log('iframe: '+iframe);
+					console.log('iframe.length: '+iframe.length);
 					var adClasses = this.evaluate(function(){
 						var theQuery = document.querySelector('.aw-diagnostic-preview-iframe-v2');
 						var theIframe = theQuery.contentDocument || theQuery.contentWindow.document;
@@ -52,7 +53,7 @@ function startSpooky(searchTerm){
 						return classes;
 					});
 					console.log('adClasses: '+adClasses);
-
+					console.log('adClasses.length: '+adClasses.length);
 					
 				} else {
 					console.log('doesnt exist');
