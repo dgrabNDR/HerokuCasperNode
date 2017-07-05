@@ -42,7 +42,7 @@ function startSpooky(searchTerm){
 					console.log('.aw-diagnostic-preview-iframe-v2 exists!');
 					var iframe = this.evaluate(function(){
 						var theQuery = document.querySelector('.aw-diagnostic-preview-iframe-v2');
-						return theQuery.contentDocument.body.innerHTML || theQuery.contentWindow.document.body.innerHTML;
+						return theQuery.contentDocument || theQuery.contentWindow.document;
 					});
 					console.log('iframe: '+JSON.stringify(iframe));
 					//var classes = iframe.getElementsByTagName('li');
@@ -50,10 +50,10 @@ function startSpooky(searchTerm){
 
 					var adClasses = this.evaluate(function(){
 						var theQuery = document.querySelector('.aw-diagnostic-preview-iframe-v2');
-						var theIframe = theQuery.contentDocument.body.innerHTML || theQuery.contentWindow.document.body.innerHTML;
-						var classes = theIframe.querySelectorAll('li');
-						//console.log('classes: '+JSON.stringify(classes));
-						return classes;
+						//var theIframe = theQuery.contentDocument.body.innerHTML || theQuery.contentWindow.document.body.innerHTML;
+						//var classes = theIframe.querySelectorAll('li');
+						//return classes;
+						return $(theQuery).contents().find('li');
 					});
 					console.log('adClasses: '+JSON.stringify(adClasses));
 					for (var cls in adClasses){
