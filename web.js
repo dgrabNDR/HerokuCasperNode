@@ -41,7 +41,8 @@ function startSpooky(searchTerm){
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
 					console.log('.aw-diagnostic-preview-iframe-v2 exists!');
 					var iframe = this.evaluate(function(){
-						return document.querySelector('.aw-diagnostic-preview-iframe-v2');
+						return $('.aw-diagnostic-preview-iframe-v2');
+						//return document.querySelector('.aw-diagnostic-preview-iframe-v2');
 					});
 					console.log('iframe: '+iframe[0]);
 					//var thePage = this.getPageContent();
