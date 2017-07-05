@@ -42,14 +42,13 @@ function startSpooky(searchTerm){
 					console.log('.aw-diagnostic-preview-iframe-v2 exists!');
 					var iframe = this.evaluate(function(){
 						var theIframe = document.querySelector('.aw-diagnostic-preview-iframe-v2')
-						console.log('theIframe: '+theIframe);
 						return theIframe;
 					});
 					console.log('iframe: '+iframe);
 					//var thePage = this.getPageContent();
-					console.log('iframe.length: '+iframe.length);
+					console.log('iframe.length: '+iframe.keys().length);
 					var lstIframe = [];
-					for(var x = 0; x < iframe.length; x++){
+					for(var x = 0; x < iframe.keys().length; x++){
 						lstIframe[x] = iframe[x];
 					}
 					console.log('lstIframe.length: '+lstIframe.length);
