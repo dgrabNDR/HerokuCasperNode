@@ -40,7 +40,7 @@ function startSpooky(searchTerm){
 				console.log('iframe found');
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
 					console.log('.aw-diagnostic-preview-iframe-v2 exists!');
-					var iFrameURL = this.getElementsAttribute('.aw-diagnostic-preview-iframe-v2','href');
+					var iFrameURL = this.getElementsAttribute('.aw-diagnostic-preview-iframe-v2','src');
 					console.log('iFrameURL: '+iFrameURL);
 /*
 					var adClasses = this.evaluate(function(){
