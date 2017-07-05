@@ -40,11 +40,11 @@ function startSpooky(searchTerm){
 				console.log('iframe found');
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
 					console.log('.aw-diagnostic-preview-iframe-v2 exists!');
-					var iframe = this.evaluate(function(){
+					/*var iframe = this.evaluate(function(){
 						var theQuery = document.querySelector('.aw-diagnostic-preview-iframe-v2');
 						return theQuery.contentDocument || theQuery.contentWindow.document;
 					});
-					console.log('iframe: '+JSON.stringify(iframe));
+					console.log('iframe: '+JSON.stringify(iframe));*/
 					//var classes = iframe.getElementsByTagName('li');
 					//console.log(classes);
 
