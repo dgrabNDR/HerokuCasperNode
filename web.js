@@ -40,16 +40,19 @@ function startSpooky(searchTerm){
 				console.log('iframe found');
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
 					console.log('.aw-diagnostic-preview-iframe-v2 exists!');
-					/*var iframe = this.evaluate(function(){
+					var iframe = this.evaluate(function(){
 						var theQuery = document.querySelector('.aw-diagnostic-preview-iframe-v2');
 						return theQuery.contentDocument || theQuery.contentWindow.document;
 					});
-					console.log('iframe: '+iframe);
-					console.log('iframe.length: '+iframe.length);*/
+					//console.log('iframe: '+JSON.stringify(iframe));
+					for (var cls in iframe){
+						console.log(cls);
+					}
+					
 					var adClasses = this.evaluate(function(){
 						var theQuery = document.querySelector('.aw-diagnostic-preview-iframe-v2');
 						var theIframe = theQuery.contentDocument || theQuery.contentWindow.document;
-						var classes = theIframe.getElementsByClassName('ads-visurl');
+						var classes = theIframe.querySelector('.ads-visurl');
 						
 						return classes;
 					});
