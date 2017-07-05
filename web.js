@@ -40,8 +40,12 @@ function startSpooky(searchTerm){
 				console.log('iframe found');
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
 					console.log('.aw-diagnostic-preview-iframe-v2 exists!');
-					var iFrameURL = this.getElementsAttribute('.aw-diagnostic-preview-iframe-v2','src');
-					console.log('iFrameURL: '+iFrameURL);
+					var iFrameClass = this.getElementsAttribute('.aw-diagnostic-preview-iframe-v2','class');
+					console.log('iFrameClass: '+iFrameClass);
+					var iFrameName = this.getElementsAttribute('.aw-diagnostic-preview-iframe-v2','name');
+					console.log('iFrameName: '+iFrameName);
+					var iFrameSrc = this.getElementsAttribute('.aw-diagnostic-preview-iframe-v2','src');
+					console.log('iFrameSrc: '+iFrameSrc);
 /*
 					var adClasses = this.evaluate(function(){
 						var theQuery = document.querySelector('.aw-diagnostic-preview-iframe-v2');
