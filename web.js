@@ -53,13 +53,11 @@ function startSpooky(searchTerm){
 						
 						return classes;
 					});
-					console.log('adClasses: '+adClasses);
-					console.log('adClasses.length: '+adClasses.length);
+					console.log('adClasses: '+JSON.stringify(adClasses));
 					for (var cls in adClasses){
 						console.log(cls);
 					}
 					console.log('adClasses.item: '+adClasses.item);
-					console.log('adClasses.item: '+adClasses.item.length);
 					
 				} else {
 					console.log('doesnt exist');
