@@ -53,9 +53,9 @@ function startSpooky(searchTerm){
 						
 						return classes;
 					});
-					console.log('adClasses: '+adClasses);
-					console.log('adClasses.length: '+adClasses.length);
-					for (var theclass in adClasses){
+					console.log('adClasses: '+adClasses.item);
+					console.log('adClasses.length: '+adClasses.item.length);
+					for (var theclass in adClasses.item){
 						console.log(theclass);
 					}
 					
