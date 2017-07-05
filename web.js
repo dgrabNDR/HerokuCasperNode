@@ -44,11 +44,10 @@ function startSpooky(searchTerm){
 					var iframe = this.evaluate(function(){
 						elemName = this.getElementsAttribute('.aw-diagnostic-preview-iframe-v2','name');
 						var theIframe = document.querySelector('.aw-diagnostic-preview-iframe-v2');
-						return theIframe.contentDocument || theIframe.contentWindow.document;
+						return $(theIframe.contentDocument) || $(theIframe.contentWindow.document);
 					});
 					console.log('elemName: '+elemName);
 					console.log('iframe: '+iframe);
-					console.log('iframe: '+$(iframe));
 					console.log('iframe json: '+json.stringify(iframe));
 					//var ads = iframe.getElementsByClassName('ads-visurl');
 					//console.log('ads: '+ads);
