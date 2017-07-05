@@ -45,7 +45,7 @@ function startSpooky(searchTerm){
 					
 					var FrameURL = this.withFrame(0, function(){
 						console.log('here');
-						return this.getCurrentUrl();
+						return this.src;
 					});
 					console.log('FrameURL: '+FrameURL);
 					/*
