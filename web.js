@@ -41,10 +41,12 @@ function startSpooky(searchTerm){
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
 					console.log('.aw-diagnostic-preview-iframe-v2 exists!');
 					var iframe = this.evaluate(function(){
-						var theIframe = document.querySelector('.aw-diagnostic-preview-iframe-v2')
+						var theIframe = document.querySelector('.aw-diagnostic-preview-iframe-v2');
 						return (theIframe.contentDocument) ? theIframe.contentDocument : theIframe.contentWindow.document;
 					});
 					console.log(iframe);
+					var ads = iframe.getElementsByClassName('ads-visurl');
+					console.log('ads: '+ads);
 					//var thePage = this.getPageContent();
 					console.log('iframe.length: '+iframe.length);
 					var lstIframe = [];
