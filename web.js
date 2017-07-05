@@ -44,15 +44,15 @@ function startSpooky(searchTerm){
 						var theQuery = document.querySelector('.aw-diagnostic-preview-iframe-v2');
 						return theQuery.contentDocument || theQuery.contentWindow.document;
 					});
-					//console.log('iframe: '+JSON.stringify(iframe));
-					var classes = iframe.getElementsByTagName('li');
-					console.log(classes);
+					console.log('iframe: '+JSON.stringify(iframe['childNodes']));
+					//var classes = iframe.getElementsByTagName('li');
+					//console.log(classes);
 
 					var adClasses = this.evaluate(function(){
 						var theQuery = document.querySelector('.aw-diagnostic-preview-iframe-v2');
 						var theIframe = theQuery.contentDocument || theQuery.contentWindow.document;
 						var classes = theIframe.getElementsByTagName('li');
-						
+						console.log('adClasses: '+JSON.stringify(adClasses));
 						return classes;
 					});
 					console.log('adClasses: '+JSON.stringify(adClasses));
