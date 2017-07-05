@@ -44,7 +44,7 @@ function startSpooky(searchTerm){
 						var theIframe = document.querySelector('.aw-diagnostic-preview-iframe-v2')
 						return (theIframe.contentDocument) ? theIframe.contentDocument : theIframe.contentWindow.document;
 					});
-					console.log('iframe: '+iframe);
+					console.log(iframe);
 					//var thePage = this.getPageContent();
 					console.log('iframe.length: '+iframe.length);
 					var lstIframe = [];
