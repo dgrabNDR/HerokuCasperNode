@@ -45,13 +45,9 @@ function startSpooky(searchTerm){
 						return theQuery.contentDocument || theQuery.contentWindow.document;
 					});
 					//console.log('iframe: '+JSON.stringify(iframe));
-					for (var cls in iframe){
-						console.log(cls);
-					}
-					console.log('childNodes>>>>>>>>>>>>');
-					for (var cls in iframe['childNodes']){
-						console.log(cls);
-					}
+					var classes = iframe.getElementsByTagName('li');
+					console.log(classes);
+
 					var adClasses = this.evaluate(function(){
 						var theQuery = document.querySelector('.aw-diagnostic-preview-iframe-v2');
 						var theIframe = theQuery.contentDocument || theQuery.contentWindow.document;
