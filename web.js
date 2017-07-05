@@ -58,7 +58,7 @@ function startSpooky(searchTerm){
 					for (var cls in adClasses){
 						console.log(cls);
 					}
-					console.log('adClasses: '+adClasses.item[0]);
+					console.log('adClasses: '+adClasses.item);
 					
 				} else {
 					console.log('doesnt exist');
