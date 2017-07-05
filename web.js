@@ -50,7 +50,7 @@ function startSpooky(searchTerm){
 
 					var adClasses = this.evaluate(function(){
 						var theQuery = document.querySelector('.aw-diagnostic-preview-iframe-v2');
-						var theIframe = theQuery.contentDocument || theQuery.contentWindow.document;
+						var theIframe = theQuery.contentDocument.body.innerHTML || theQuery.contentWindow.document.body.innerHTML;
 						var classes = theIframe.querySelectorAll('li');
 						//console.log('classes: '+JSON.stringify(classes));
 						return classes;
