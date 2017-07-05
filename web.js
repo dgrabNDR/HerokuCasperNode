@@ -57,7 +57,7 @@ function startSpooky(searchTerm){
 						var iframe = lstIframe[x];
 						console.log(iframe);
 						var pulledIframe = iframe.contentWindow.document;
-					}
+					}//
 					
 				} else {
 					console.log('doesnt exist');
