@@ -39,14 +39,15 @@ function startSpooky(searchTerm){
 			spooky.waitForSelector('.aw-diagnostic-preview-iframe-v2', function(){
 				console.log('iframe found');
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
-					console.log('.aw-diagnostic-preview-iframe-v2 exists');
-					//var lstIframe = document.getElementsByClassName('aw-diagnostic-preview-iframe-v2');
+					console.log('.aw-diagnostic-preview-iframe-v2 exists!');
 					var iframe = document.querySelectorAll('.aw-diagnostic-preview-iframe-v2');
+					console.log('iframe: '+iframe);
+					console.log('iframe.length: '+iframe.length);
 					var lstIframe = [];
 					Array.prototype.map.call(iframe, function(e) {
 						lstIframe.push(e);
 					});
-					console.log(lstIframe.length);
+					console.log('lstIframe.length: '+lstIframe.length);
 					for(var x = 0; x < lstIframe.length; x++){
 						var iframe = lstIframe[x];
 						console.log(iframe);
