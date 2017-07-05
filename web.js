@@ -44,7 +44,10 @@ function startSpooky(searchTerm){
 					console.log('iFrameClass: '+iFrameClass);
 					var iFrameName = this.getElementsAttribute('.aw-diagnostic-preview-iframe-v2','name');
 					console.log('iFrameName: '+iFrameName);
-					var iFrameSrc = this.getElementInfo('.aw-diagnostic-preview-iframe-v2');
+					var iFrameSrc = this.evaluate(function(){
+						var theQuery = document.querySelector('.aw-diagnostic-preview-iframe-v2');
+						return theQuery.src;
+					});
 					console.log('iFrameSrc: '+JSON.stringify(iFrameSrc));
 /*
 					var adClasses = this.evaluate(function(){
