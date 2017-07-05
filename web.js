@@ -40,7 +40,7 @@ function startSpooky(searchTerm){
 				console.log('iframe found');
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
 					console.log('.aw-diagnostic-preview-iframe-v2 exists!');
-					casper.withFrame('.aw-diagnostic-preview-iframe-v2', function(){
+					this.withFrame('.aw-diagnostic-preview-iframe-v2', function(){
 						console.log(this.getCurrentUrl());
 					});
 					/*
