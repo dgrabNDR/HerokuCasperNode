@@ -42,14 +42,15 @@ function startSpooky(searchTerm){
 					console.log('.aw-diagnostic-preview-iframe-v2 exists!');
 					var iFrameName = this.getElementsAttribute('.aw-diagnostic-preview-iframe-v2','name');
 					console.log('iFrameName: '+iFrameName);
-					
-					var FrameURL = this.withFrame(iFrameName, function(){
+					this.page.switchToChildFrame(0);
+					console.log(this.getTitle());
+					/*var FrameURL = this.withFrame(iFrameName, function(){
 						console.log('here');
 						this.test.assertVisible('#searchform')
 						return this.src;
 					});
 					console.log('FrameURL: '+FrameURL);
-					/*
+					
 					var iFrameClass = this.getElementsAttribute('.aw-diagnostic-preview-iframe-v2','class');
 					console.log('iFrameClass: '+iFrameClass);
 					
