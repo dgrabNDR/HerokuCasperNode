@@ -42,7 +42,7 @@ function startSpooky(searchTerm, location, device){
 
 			spooky.start(endpoint, function(){
 				console.log('spooky started');
-				//this.waitForSelector('.ads-ad');
+				this.waitForSelector('.ads-ad');
 			});		
 			
 			spooky.then(function(){
