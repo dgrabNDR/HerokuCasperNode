@@ -17,6 +17,12 @@ function startSpooky(searchTerm, location, device){
 	console.log('searchTermURL: '+searchTermURL);
 	console.log('location: '+location);
 	console.log('device: '+device);
+	var endpoint = 'https://www.google.com/search?q='+searchTermURL+'&ip=0.0.0.0&source_ip=0.0.0.0&ie=UTF-8&oe=UTF-8&hl=en&adtest=on&noj=1&igu=1&adsdiag=9104623049776225757&uule='+location;
+	if(device != null && device != ''){
+		endpoint += '&adtest-useragent='+device;
+	}
+	console.log('endpoint: '+endpoint);
+	
 	spooky = new Spooky({
 			child: {
 				transport: 'http'
@@ -31,14 +37,7 @@ function startSpooky(searchTerm, location, device){
 				e.details = err;
 				throw e;
 			}
-			console.log('start');
-
-
-			var endpoint = 'https://www.google.com/search?q='+searchTermURL+'&ip=0.0.0.0&source_ip=0.0.0.0&ie=UTF-8&oe=UTF-8&hl=en&adtest=on&noj=1&igu=1&adsdiag=9104623049776225757&uule='+location;
-			if(device != null && device != ''){
-				endpoint += '&adtest-useragent='+device;
-			}
-			console.log('endpoint: '+endpoint);
+			console.log('start');			
 
 			spooky.start(endpoint, function(){
 				console.log('spooky started');
@@ -86,7 +85,7 @@ function startSpooky(searchTerm, location, device){
 	// There are a lot.
 	// He has opinions.
 	spooky.on('console', function (line) {
-		console.log(line);
+		//console.log(line);
 	});
 	
 	gGreeting = 'Hello World';
