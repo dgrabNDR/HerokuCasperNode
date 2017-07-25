@@ -49,6 +49,7 @@ function startSpooky(searchTerm, location, device){
 			spooky.waitForSelector('.ads-ad', function(){
 				function getAds(){
 					var ads = document.querySelectorAll('.ads-ad');
+					console.log('ads: '+ads);
 					return Array.prototype.map.call(ads, function(e) {
 						console.log('ad: '+e);
 						return e;
@@ -72,15 +73,16 @@ function startSpooky(searchTerm, location, device){
 				console.log('timed out looking for .ads-ad')
 				function getAds(){
 					var ads = document.querySelectorAll('.ads-ad');
+					console.log('ads: '+ads);
 					return Array.prototype.map.call(ads, function(e) {
-						console.log('ad: '+e);
-						return e;
+						console.log(e.getAttribute('data-hveid'));
+						return e.getAttribute('data-hveid');
 					});
 				}
 				try{
 					var theAds = this.evaluate(getAds);
 					console.log('getAds success');
-					console.log('theAds: '+theAds);						
+					console.log(theAds);						
 				} catch (e) {
 					console.log('getAds failed');
 				}
