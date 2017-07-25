@@ -12,7 +12,7 @@ var jQuery = require('jquery')
 function getAds(){
 	var ads = document.querySelectorAll('li.ads-ad');
 	return Array.prototype.map.call(ads, function(e) {
-		eturn e.getAttribute('data-hveid');
+		return e.getAttribute('data-hveid');
 	});
 }
 var spooky;
