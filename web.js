@@ -12,11 +12,9 @@ var jQuery = require('jquery')
 
 var spooky;
 var gGreeting;
-function startSpooky(searchTerm, location, device){
+function startSpooky(searchTerm){
 	var searchTermURL = JSON.stringify(searchTerm).replace(/ /g,'+');
 	console.log('searchTermURL: '+searchTermURL);
-	console.log('location: '+location);
-	console.log('device: '+device);
 	spooky = new Spooky({
 			child: {
 				transport: 'http'
@@ -33,18 +31,19 @@ function startSpooky(searchTerm, location, device){
 			}
 			console.log('start');
 			//$ = jQuery.noConflict();
-			var endpoint = 'https://www.google.com/search?q=Debt+consolidation&ip=0.0.0.0&source_ip=0.0.0.0&ie=UTF-8&oe=UTF-8&hl=en&adtest=on&noj=1&igu=1';
-			endpoint += '&uule='+location;
-			if(device != null && device != ''){
-				endpoint += '&useragent=='+device;
-			}
-			console.log('endpoint: '+endpoint);
-			spooky.start(endpoint ,function(){				
+			spooky.start('https://adwords.google.com/apt/anon/AdPreview?aptenv_v2=ZG9tYWluPXd3dy5nb29nbGUuY29tLGxhbmc9ZW4sbG9jPTEwMjMxOTF8VVMscGxhdD1ERVNLVE9Q&st='+searchTermURL+'&run=true',function(){				
 				console.log('Spooky started');
 					
 			});
-			/*
-			spooky.waitForSelector('.aw-diagnostic-preview-iframe-v2', function(){
+			
+			sppoky.waitForSelector('#tvcap', function(){
+				if(this.exists('#tvcap')) {
+					console.log('#tvcap found');
+				} else {
+					console.log('#tvcap NOT found');
+				}
+			}
+			/*spooky.waitForSelector('.aw-diagnostic-preview-iframe-v2', function(){
 				console.log('iframe found');
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
 					console.log('.aw-diagnostic-preview-iframe-v2 exists!');
@@ -57,12 +56,34 @@ function startSpooky(searchTerm, location, device){
 						console.log(this.getTitle());
 						return this.src;
 					});
-					console.log('FrameURL: '+FrameURL);					
+					console.log('FrameURL: '+FrameURL);
+					
+					var iFrameClass = this.getElementsAttribute('.aw-diagnostic-preview-iframe-v2','class');
+					console.log('iFrameClass: '+iFrameClass);
+					
+					var iFrameSrc = this.evaluate(function(){
+						var theQuery = document.querySelector('.aw-diagnostic-preview-iframe-v2');
+						return theQuery.src;
+					});
+					console.log('iFrameSrc: '+JSON.stringify(iFrameSrc));
+
+					var adClasses = this.evaluate(function(){
+						var theQuery = document.querySelector('.aw-diagnostic-preview-iframe-v2');
+						//var theIframe = theQuery.contentDocument.body.innerHTML || theQuery.contentWindow.document.body.innerHTML;
+						//var classes = theIframe.querySelectorAll('li');
+						//return classes;
+						return $(theQuery)
+					});
+					console.log('adClasses: '+JSON.stringify(adClasses));
+					for (var cls in adClasses){
+						console.log(cls);
+					}
+					
+					
 				} else {
 					console.log('doesnt exist');
-				}				
-			});
-			*/
+				}
+			});*/
 			spooky.run();
 		});
 
@@ -103,7 +124,10 @@ app.use( bodyParser.json() );
 app.use(express.json());
 app.post('/', function(request, response) {
     console.log('app.post');
-    startSpooky(request.body.searchterm, request.body.location, request.body.device);
+	console.log('searchterm: '+request.body.searchterm);
+	console.log('location: '+request.body.location);
+	console.log('device: '+request.body.device);
+    startSpooky(request.body.searchterm, request.body.location. request.body.);
     //response.send(gGreeting);
 });
 
