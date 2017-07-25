@@ -13,7 +13,7 @@ var jQuery = require('jquery')
 var spooky;
 var gGreeting;
 function startSpooky(searchTerm, location, device){
-	var searchTermURL = JSON.stringify(searchTerm).replace(/ /g,'+');
+	var searchTermURL = searchTerm.replace(/ /g,'+');
 	console.log('searchTerm: '+searchTerm);
 	console.log('searchTermURL: '+searchTermURL);
 	console.log('location: '+location);
