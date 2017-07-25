@@ -46,42 +46,34 @@ function startSpooky(searchTerm, location, device){
 				console.log('spooky started');
 			});
 			
-			spooky.waitForSelector('#tads', function(){
+			spooky.waitForSelector('.ads-ad', function(){
 				function getAds(){
 					var ads = document.querySelectorAll('li.ads-ad');
 					return Array.prototype.map.call(ads, function(e) {
 						return e.getAttribute('data-hveid');
 					});
 				}
-				if(this.exists('#tads')) {
-					console.log('#tads found');
+				function getAds2(){
+					var ads = document.querySelectorAll('li.ads-ad');
+					return Array.prototype.map.call(ads, function(e) {
+						return e.getAttribute('data-hveid');
+					});
+				}
+				if(this.exists('.ads-ad')) {
+					console.log('.ads-ad found');
 					try{
 						var theAds = this.evaluate(getAds);
+						console.log('getAds success');
 						console.log(theAds);						
 					} catch (e) {
-						var theAds = getAds();
-						console.log(theAds);
+						console.log('getAds failed');
 					}
-					console.log('done with #tads');
+					console.log('done with .ads-ad');
 				} else {
-					console.log('#tads NOT found');
+					console.log('.ads-ad NOT found');
 				}
 			}, function(){
-				function getAds(){
-					var ads = document.querySelectorAll('li.ads-ad');
-					return Array.prototype.map.call(ads, function(e) {
-						return e.getAttribute('data-hveid');
-					});
-				}
-				console.log('timed out looking for #tads')
-				try{
-					var theAds = this.evaluate(getAds());
-					console.log(theAds);						
-				} catch (e) {
-					var theAds = getAds();
-					console.log(theAds);
-				}
-				console.log('done with #tads');
+				console.log('timed out looking for .ads-ad')
 			}, 30000);	
 			
 			spooky.run();
