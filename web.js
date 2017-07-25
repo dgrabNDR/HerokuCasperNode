@@ -42,11 +42,11 @@ function startSpooky(searchTerm, location, device){
 
 			spooky.start(endpoint, function(){
 				console.log('spooky started');
-				//this.waitForSelector('.ads-ad');
+				this.waitForSelector('.ads-ad');
 			});		
 			
 			spooky.then(function(){
-				console.log('spooky then started');
+				console.log('spooky.then() started');
 				function getAds(){
 					var links = document.querySelectorAll('.ads-ad');
 					return Array.prototype.map.call(links, function(e) {
@@ -86,7 +86,7 @@ function startSpooky(searchTerm, location, device){
 	// There are a lot.
 	// He has opinions.
 	spooky.on('console', function (line) {
-		//console.log(line);
+		console.log(line);
 	});
 	
 	gGreeting = 'Hello World';
