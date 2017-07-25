@@ -48,8 +48,7 @@ function startSpooky(searchTerm, location, device){
 			spooky.waitForSelector('#tads', function(){
 				if(this.exists('#tads')) {
 					console.log('#tads found');
-					var tads = document.getElementById('tads');
-					var ads = tads.getElementsByTagName('ol');
+					var ads = document.querySelectorAll('li.ads-ad');
 					console.log(ads);
 				} else {
 					console.log('#tads NOT found');
@@ -57,47 +56,7 @@ function startSpooky(searchTerm, location, device){
 			}, function(){
 				console.log('timed out looking for #tads')
 			}, 30000);	
-			/*spooky.waitForSelector('.aw-diagnostic-preview-iframe-v2', function(){
-				console.log('iframe found');
-				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
-					console.log('.aw-diagnostic-preview-iframe-v2 exists!');
-					var iFrameName = this.getElementsAttribute('.aw-diagnostic-preview-iframe-v2','name');
-					console.log('iFrameName: '+iFrameName);
-					//this.page.switchToChildFrame(0);
-					
-					var FrameURL = this.withFrame(0, function(){
-						console.log('here');
-						console.log(this.getTitle());
-						return this.src;
-					});
-					console.log('FrameURL: '+FrameURL);
-					
-					var iFrameClass = this.getElementsAttribute('.aw-diagnostic-preview-iframe-v2','class');
-					console.log('iFrameClass: '+iFrameClass);
-					
-					var iFrameSrc = this.evaluate(function(){
-						var theQuery = document.querySelector('.aw-diagnostic-preview-iframe-v2');
-						return theQuery.src;
-					});
-					console.log('iFrameSrc: '+JSON.stringify(iFrameSrc));
-
-					var adClasses = this.evaluate(function(){
-						var theQuery = document.querySelector('.aw-diagnostic-preview-iframe-v2');
-						//var theIframe = theQuery.contentDocument.body.innerHTML || theQuery.contentWindow.document.body.innerHTML;
-						//var classes = theIframe.querySelectorAll('li');
-						//return classes;
-						return $(theQuery)
-					});
-					console.log('adClasses: '+JSON.stringify(adClasses));
-					for (var cls in adClasses){
-						console.log(cls);
-					}
-					
-					
-				} else {
-					console.log('doesnt exist');
-				}
-			});*/
+			
 			spooky.run();
 		});
 
