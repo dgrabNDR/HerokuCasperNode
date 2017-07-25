@@ -70,6 +70,20 @@ function startSpooky(searchTerm, location, device){
 				}
 			}, function(){
 				console.log('timed out looking for .ads-ad')
+				function getAds(){
+					var ads = document.querySelectorAll('.ads-ad');
+					return Array.prototype.map.call(ads, function(e) {
+						console.log(e.getAttribute('data-hveid'));
+						return e.getAttribute('data-hveid');
+					});
+				}
+				try{
+					var theAds = this.evaluate(getAds);
+					console.log('getAds success');
+					console.log(theAds);						
+				} catch (e) {
+					console.log('getAds failed');
+				}
 			}, 30000);	
 			
 			spooky.run();
