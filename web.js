@@ -50,8 +50,8 @@ function startSpooky(searchTerm, location, device){
 				function getAds(){
 					var ads = document.querySelectorAll('.ads-ad');
 					return Array.prototype.map.call(ads, function(e) {
-						console.log(e.getAttribute('data-hveid'));
-						return e.getAttribute('data-hveid');
+						console.log('ad: '+e);
+						return e;
 					});
 				}
 
@@ -60,7 +60,7 @@ function startSpooky(searchTerm, location, device){
 					try{
 						var theAds = this.evaluate(getAds);
 						console.log('getAds success');
-						console.log(theAds);						
+						console.log('theAds: '+theAds);						
 					} catch (e) {
 						console.log('getAds failed');
 					}
@@ -73,14 +73,14 @@ function startSpooky(searchTerm, location, device){
 				function getAds(){
 					var ads = document.querySelectorAll('.ads-ad');
 					return Array.prototype.map.call(ads, function(e) {
-						console.log(e.getAttribute('data-hveid'));
-						return e.getAttribute('data-hveid');
+						console.log('ad: '+e);
+						return e;
 					});
 				}
 				try{
 					var theAds = this.evaluate(getAds);
 					console.log('getAds success');
-					console.log(theAds);						
+					console.log('theAds: '+theAds);						
 				} catch (e) {
 					console.log('getAds failed');
 				}
