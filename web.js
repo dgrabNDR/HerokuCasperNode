@@ -48,17 +48,13 @@ function startSpooky(searchTerm, location, device){
 			
 			spooky.waitForSelector('.ads-ad', function(){
 				function getAds(){
-					var ads = document.querySelectorAll('li.ads-ad');
+					var ads = document.querySelectorAll('.ads-ad');
 					return Array.prototype.map.call(ads, function(e) {
+						console.log(e.getAttribute('data-hveid'));
 						return e.getAttribute('data-hveid');
 					});
 				}
-				function getAds2(){
-					var ads = document.querySelectorAll('li.ads-ad');
-					return Array.prototype.map.call(ads, function(e) {
-						return e.getAttribute('data-hveid');
-					});
-				}
+
 				if(this.exists('.ads-ad')) {
 					console.log('.ads-ad found');
 					try{
