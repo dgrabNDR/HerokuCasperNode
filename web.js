@@ -40,14 +40,10 @@ function startSpooky(searchTerm, location, device){
 			}
 			console.log('endpoint: '+endpoint);
 
-			try{
 			spooky.start(endpoint, function(){
 				console.log('spooky started');
-				this.waitForSelector('.ads-ad');
-			});
-			} catch (e) {
-				
-			}			
+				//this.waitForSelector('.ads-ad');
+			});		
 			
 			spooky.then(function(){
 				console.log('spooky then started');
