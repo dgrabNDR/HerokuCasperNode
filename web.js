@@ -47,8 +47,9 @@ function startSpooky(searchTerm, location, device){
 			spooky.then(function(){
 				console.log('spooky.then() started');
 				function getAds(){
-					var links = document.querySelectorAll('.ads-ad');
-					return Array.prototype.map.call(links, function(e) {
+					var ads = document.querySelectorAll('.ads-ad');
+					return Array.prototype.map.call(ads, function(e) {
+						console.log('found: '+e);
 						return e.getAttribute('class');
 					});
 				};
