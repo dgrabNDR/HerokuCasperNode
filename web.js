@@ -12,9 +12,11 @@ var jQuery = require('jquery')
 
 var spooky;
 var gGreeting;
-function startSpooky(searchTerm){
+function startSpooky(searchTerm, location, device){
 	var searchTermURL = JSON.stringify(searchTerm).replace(/ /g,'+');
 	console.log('searchTermURL: '+searchTermURL);
+	console.log('location: '+location);
+	console.log('device: '+device);
 	spooky = new Spooky({
 			child: {
 				transport: 'http'
@@ -30,8 +32,14 @@ function startSpooky(searchTerm){
 				throw e;
 			}
 			console.log('start');
-			//$ = jQuery.noConflict();
-			spooky.start('https://adwords.google.com/apt/anon/AdPreview?aptenv_v2=ZG9tYWluPXd3dy5nb29nbGUuY29tLGxhbmc9ZW4sbG9jPTEwMjMxOTF8VVMscGxhdD1ERVNLVE9Q&st='+searchTermURL+'&run=true',function(){				
+			var endpoint = 'https://www.google.com/search?q='+searchTermURL+'&ip=0.0.0.0&source_ip=0.0.0.0&ie=UTF-8&oe=UTF-8&hl=en&adtest=on&noj=1&igu=1&uule='+location;
+			if(device != null && device != ''){
+				endpoint += '&useragent='+device;
+			}
+			console.log('endpoint: '+endpoint);
+
+
+			spooky.start(endpoint, function(){				
 				console.log('Spooky started');
 					
 			});
@@ -42,7 +50,7 @@ function startSpooky(searchTerm){
 				} else {
 					console.log('#tvcap NOT found');
 				}
-			}
+			});
 			/*spooky.waitForSelector('.aw-diagnostic-preview-iframe-v2', function(){
 				console.log('iframe found');
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
@@ -124,9 +132,6 @@ app.use( bodyParser.json() );
 app.use(express.json());
 app.post('/', function(request, response) {
     console.log('app.post');
-	console.log('searchterm: '+request.body.searchterm);
-	console.log('location: '+request.body.location);
-	console.log('device: '+request.body.device);
     startSpooky(request.body.searchterm, request.body.location. request.body.);
     //response.send(gGreeting);
 });
