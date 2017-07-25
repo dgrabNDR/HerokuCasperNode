@@ -47,9 +47,7 @@ function startSpooky(searchTerm, location, device){
 					console.log('#tvcap NOT found');
 				}
 				
-			});
-			
-			spooky.waitForSelector('#tvcap', function(){
+			}).waitForSelector('#tvcap', function(){
 				if(this.exists('#tvcap')) {
 					console.log('#tvcap found');
 				} else {
