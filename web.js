@@ -33,9 +33,10 @@ function startSpooky(searchTerm, location, device){
 				throw e;
 			}
 			console.log('start');
-			var endpoint = 'https://www.google.com/search?q='+searchTermURL+'&ip=0.0.0.0&source_ip=0.0.0.0&ie=UTF-8&oe=UTF-8&hl=en&adtest=on&noj=1&igu=1&uule='+location;
+
+			var endpoint = 'https://www.google.com/search?q='+searchTermURL+'&ip=0.0.0.0&source_ip=0.0.0.0&ie=UTF-8&oe=UTF-8&hl=en&adtest=on&noj=1&igu=1&uule='+location+'&adsdiag=-7197610009017168141'
 			if(device != null && device != ''){
-				endpoint += '&useragent='+device;
+				endpoint += '&adtest-useragent=='+device;
 			}
 			console.log('endpoint: '+endpoint);
 
