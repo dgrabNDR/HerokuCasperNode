@@ -39,9 +39,8 @@ function startSpooky(searchTerm, location, device){
 				endpoint += '&adtest-useragent=='+device;
 			}
 			endpoint  = 'https://www.google.com/search?q=Debt+consolidation&ip=0.0.0.0&source_ip=0.0.0.0&ie=UTF-8&oe=UTF-8&hl=en&adtest=on&noj=1&igu=1&uule=w+CAIQIFISCTsIP9OlT8KJEWL-d-EGjwvI&adsdiag=-7197610009017168141&adtest-useragent=Mozilla/5.0+(iPhone;+CPU+iPhone+OS+7_0+like+Mac+OS+X)+AppleWebKit/537.51.1+(KHTML,+like+Gecko)+Version/7.0+Mobile/11A465+Safari/9537.53';
+			
 			console.log('endpoint: '+endpoint);
-
-
 			spooky.start(endpoint).waitForSelector('#tvcap', function(){
 				if(this.exists('#tvcap')) {
 					console.log('#tvcap found');
