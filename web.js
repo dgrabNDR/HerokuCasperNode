@@ -9,12 +9,7 @@ var jQuery = require('jquery')
 // adoped from Heroku's [Getting Started][] and [Spooky][]'s sample
 // [Getting Started]: https://devcenter.heroku.com/articles/getting-started-with-nodejs
 // [Spooky]: https://github.com/WaterfallEngineering/SpookyJS
-function getAds(){
-	var ads = document.querySelectorAll('li.ads-ad');
-	return Array.prototype.map.call(ads, function(e) {
-		return e.getAttribute('data-hveid');
-	});
-}
+
 var spooky;
 var gGreeting;
 function startSpooky(searchTerm, location, device){
@@ -52,10 +47,16 @@ function startSpooky(searchTerm, location, device){
 			});
 			
 			spooky.waitForSelector('#tads', function(){
+				function getAds(){
+					var ads = document.querySelectorAll('li.ads-ad');
+					return Array.prototype.map.call(ads, function(e) {
+						return e.getAttribute('data-hveid');
+					});
+				}
 				if(this.exists('#tads')) {
 					console.log('#tads found');
 					try{
-						var theAds = this.evaluate(getAds());
+						var theAds = this.evaluate(getAds);
 						console.log(theAds);						
 					} catch (e) {
 						var theAds = getAds();
@@ -67,18 +68,14 @@ function startSpooky(searchTerm, location, device){
 				}
 			}, function(){
 				console.log('timed out looking for #tads')
-				if(this.exists('#tads')) {
-					console.log('#tads found');
-					try{
-						var theAds = this.evaluate(getAds());
-						console.log(theAds);						
-					} catch (e) {
-						var theAds = getAds();
-						console.log(theAds);
-					}
-				} else {
-					console.log('#tads NOT found');
+				try{
+					var theAds = this.evaluate(getAds());
+					console.log(theAds);						
+				} catch (e) {
+					var theAds = getAds();
+					console.log(theAds);
 				}
+				console.log('done with #tads');
 			}, 30000);	
 			
 			spooky.run();
