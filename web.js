@@ -36,7 +36,7 @@ function startSpooky(searchTerm){
 					
 			});
 			
-			sppoky.waitForSelector('#tvcap', function(){
+			spooky.waitForSelector('#tvcap', function(){
 				if(this.exists('#tvcap')) {
 					console.log('#tvcap found');
 				} else {
