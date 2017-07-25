@@ -85,7 +85,7 @@ function startSpooky(searchTerm, location, device){
 	// There are a lot.
 	// He has opinions.
 	spooky.on('console', function (line) {
-		//console.log(line);
+		console.log(line);
 	});
 	
 	gGreeting = 'Hello World';
