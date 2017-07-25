@@ -47,19 +47,12 @@ function startSpooky(searchTerm, location, device){
 			});
 			
 			spooky.waitForSelector('.ads-ad', function(){
-				function getAds(){
-					var ads = document.querySelectorAll('.ads-ad');
-					console.log('ads: '+ads);
-					return Array.prototype.map.call(ads, function(e) {
-						console.log('ad: '+e);
-						return e;
-					});
-				}
-
 				if(this.exists('.ads-ad')) {
 					console.log('.ads-ad found');
 					try{
-						var theAds = this.evaluate(getAds);
+						var theAds = this.evaluate(function(){
+							return document.querySelectorAll('.ads-ad');
+						});
 						console.log('getAds success');
 						console.log('theAds: '+theAds);						
 					} catch (e) {
@@ -71,16 +64,10 @@ function startSpooky(searchTerm, location, device){
 				}
 			}, function(){
 				console.log('timed out looking for .ads-ad')
-				function getAds(){
-					var ads = document.querySelectorAll('.ads-ad');
-					console.log('ads: '+ads);
-					return Array.prototype.map.call(ads, function(e) {
-						console.log(e.getAttribute('data-hveid'));
-						return e.getAttribute('data-hveid');
-					});
-				}
 				try{
-					var theAds = this.evaluate(getAds);
+					var theAds = this.evaluate(function(){
+						return document.querySelectorAll('.ads-ad');
+					});
 					console.log('getAds success');
 					console.log(theAds);						
 				} catch (e) {
@@ -105,7 +92,7 @@ function startSpooky(searchTerm, location, device){
 	// There are a lot.
 	// He has opinions.
 	spooky.on('console', function (line) {
-		console.log(line);
+		//console.log(line);
 	});
 	
 	gGreeting = 'Hello World';
