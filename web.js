@@ -14,7 +14,6 @@ var spooky;
 var gGreeting;
 function startSpooky(searchTerm, location, device){
 	var searchTermURL = searchTerm.replace(/ /g,'+');
-	console.log('searchTerm: '+searchTerm);
 	console.log('searchTermURL: '+searchTermURL);
 	console.log('location: '+location);
 	console.log('device: '+device);
@@ -47,6 +46,13 @@ function startSpooky(searchTerm, location, device){
 			});
 			
 			spooky.waitForSelector('.ads-ad', function(){
+				function getAds(selector){
+					var links = document.querySelectorAll(selector);
+					return Array.prototype.map.call(links, function(e) {
+						return e.getAttribute('class');
+					});
+				};
+				
 				if(this.exists('.ads-ad')) {
 					console.log('.ads-ad found');
 					try{
@@ -64,15 +70,6 @@ function startSpooky(searchTerm, location, device){
 				}
 			}, function(){
 				console.log('timed out looking for .ads-ad')
-				try{
-					var theAds = this.evaluate(function(){
-						return document.querySelectorAll('.ads-ad');
-					});
-					console.log('getAds success');
-					console.log(theAds);						
-				} catch (e) {
-					console.log('getAds failed');
-				}
 			}, 30000);	
 			
 			spooky.run();
