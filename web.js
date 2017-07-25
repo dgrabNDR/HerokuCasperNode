@@ -35,7 +35,7 @@ function startSpooky(searchTerm, location, device){
 			//$ = jQuery.noConflict();
 			var endpoint = 'https://www.google.com/search?q=Debt+consolidation&ip=0.0.0.0&source_ip=0.0.0.0&ie=UTF-8&oe=UTF-8&hl=en&adtest=on&noj=1&igu=1';
 			endpoint += '&uule='+location;
-			if(device != null){
+			if(device != null && device != ''){
 				endpoint += '&useragent=='+device;
 			}
 			console.log('endpoint: '+endpoint);
