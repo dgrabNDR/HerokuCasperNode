@@ -40,12 +40,17 @@ function startSpooky(searchTerm, location, device){
 			}
 			console.log('endpoint: '+endpoint);
 
+			try{
 			spooky.start(endpoint, function(){
 				console.log('spooky started');
 				this.waitForSelector('.ads-ad');
-			});			
+			});
+			} catch (e) {
+				
+			}			
 			
-			spooky.then('.ads-ad', function(){
+			spooky.then(function(){
+				console.log('spooky then started');
 				function getAds(){
 					var links = document.querySelectorAll('.ads-ad');
 					return Array.prototype.map.call(links, function(e) {
@@ -66,9 +71,7 @@ function startSpooky(searchTerm, location, device){
 				} else {
 					console.log('.ads-ad NOT found');
 				}
-			}, function(){
-				console.log('timed out looking for .ads-ad')
-			}, 30000);	
+			});	
 			
 			spooky.run();
 		});
