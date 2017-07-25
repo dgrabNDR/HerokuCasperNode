@@ -38,11 +38,12 @@ function startSpooky(searchTerm, location, device){
 			if(device != null){
 				endpoint += '&useragent=='+device;
 			}
-			spooky.start('https://adwords.google.com/apt/anon/AdPreview?aptenv_v2=ZG9tYWluPXd3dy5nb29nbGUuY29tLGxhbmc9ZW4sbG9jPTEwMjMxOTF8VVMscGxhdD1ERVNLVE9Q&st='+searchTermURL+'&run=true',function(){				
+			console.log('endpoint: '+endpoint);
+			spooky.start(endpoint ,function(){				
 				console.log('Spooky started');
 					
 			});
-			
+			/*
 			spooky.waitForSelector('.aw-diagnostic-preview-iframe-v2', function(){
 				console.log('iframe found');
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
@@ -56,34 +57,12 @@ function startSpooky(searchTerm, location, device){
 						console.log(this.getTitle());
 						return this.src;
 					});
-					console.log('FrameURL: '+FrameURL);
-					/*
-					var iFrameClass = this.getElementsAttribute('.aw-diagnostic-preview-iframe-v2','class');
-					console.log('iFrameClass: '+iFrameClass);
-					
-					var iFrameSrc = this.evaluate(function(){
-						var theQuery = document.querySelector('.aw-diagnostic-preview-iframe-v2');
-						return theQuery.src;
-					});
-					console.log('iFrameSrc: '+JSON.stringify(iFrameSrc));
-
-					var adClasses = this.evaluate(function(){
-						var theQuery = document.querySelector('.aw-diagnostic-preview-iframe-v2');
-						//var theIframe = theQuery.contentDocument.body.innerHTML || theQuery.contentWindow.document.body.innerHTML;
-						//var classes = theIframe.querySelectorAll('li');
-						//return classes;
-						return $(theQuery)
-					});
-					console.log('adClasses: '+JSON.stringify(adClasses));
-					for (var cls in adClasses){
-						console.log(cls);
-					}
-					*/
-					
+					console.log('FrameURL: '+FrameURL);					
 				} else {
 					console.log('doesnt exist');
-				}
+				}				
 			});
+			*/
 			spooky.run();
 		});
 
