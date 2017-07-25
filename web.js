@@ -118,6 +118,8 @@ app.use(express.json());
 app.post('/', function(request, response) {
     console.log('app.post');
 	console.log('searchterm: '+request.body.searchterm);
+	console.log('location: '+request.body.location);
+	console.log('device: '+request.body.device);
     startSpooky(request.body.searchterm);
     //response.send(gGreeting);
 });
