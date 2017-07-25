@@ -34,17 +34,23 @@ function startSpooky(searchTerm, location, device){
 			console.log('start');
 
 
-			var endpoint = 'https://www.google.com/search?q='+searchTermURL+'&ip=0.0.0.0&source_ip=0.0.0.0&ie=UTF-8&oe=UTF-8&hl=en&adtest=on&noj=1&igu=1&uule='+location+'&adsdiag=9104623049776225757';
+			var endpoint = 'https://www.google.com/search?q='+searchTermURL+'&ip=0.0.0.0&source_ip=0.0.0.0&ie=UTF-8&oe=UTF-8&hl=en&adtest=on&noj=1&igu=1&adsdiag=9104623049776225757&uule='+location;
 			if(device != null && device != ''){
 				endpoint += '&adtest-useragent='+device;
 			}
 			console.log('endpoint: '+endpoint);
 
-
 			spooky.start(endpoint, function(){
 				console.log('spooky started');
 			});
 			
+			var theAds = spooky.evaluate(function(){
+				var links = document.querySelectorAll('.ads-ad');
+				console.log(links);
+				return links;
+			});
+			console.log(theAds);
+			/*
 			spooky.waitForSelector('.ads-ad', function(){
 				function getAds(selector){
 					var links = document.querySelectorAll(selector);
@@ -71,7 +77,7 @@ function startSpooky(searchTerm, location, device){
 			}, function(){
 				console.log('timed out looking for .ads-ad')
 			}, 30000);	
-			
+			*/
 			spooky.run();
 		});
 
