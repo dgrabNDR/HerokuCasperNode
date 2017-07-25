@@ -48,9 +48,9 @@ function startSpooky(searchTerm, location, device){
 					return links;
 				});
 				console.log(theAds);
-			}).run();
+			});
 			
-			/*
+			
 			spooky.waitForSelector('.ads-ad', function(){
 				function getAds(selector){
 					var links = document.querySelectorAll(selector);
@@ -77,8 +77,8 @@ function startSpooky(searchTerm, location, device){
 			}, function(){
 				console.log('timed out looking for .ads-ad')
 			}, 30000);	
-			*/
-			//spooky;
+			
+			spooky.run();
 		});
 
 	spooky.on('error', function (e, stack) {
@@ -112,6 +112,7 @@ function startSpooky(searchTerm, location, device){
 		}
 	});
 }
+
 app.use(express.logger());
 app.use( bodyParser.json() );
 app.use(express.json());
