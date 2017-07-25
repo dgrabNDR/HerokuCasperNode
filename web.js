@@ -56,7 +56,7 @@ function startSpooky(searchTerm, location, device){
 				if(this.exists('.ads-ad')) {
 					console.log('.ads-ad found');
 					try{
-						var theAds = this.evaluate(getAds, '.ads-ad');
+						var theAds = this.evaluate(getAds('.ads-ad'));
 						console.log('getAds success');
 						console.log('theAds: '+theAds);						
 					} catch (e) {
