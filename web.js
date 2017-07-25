@@ -54,19 +54,22 @@ function startSpooky(searchTerm, location, device){
 			spooky.waitForSelector('#tads', function(){
 				if(this.exists('#tads')) {
 					console.log('#tads found');
-					try{
 					var theAds = this.evaluate(getAds);
 					console.log(theAds);
-					} catch (e) {
-						var theAds = this.evaluate(getAds());
-						console.log(theAds);
-					}
 					console.log('done with #tads');
 				} else {
 					console.log('#tads NOT found');
 				}
 			}, function(){
 				console.log('timed out looking for #tads')
+				if(this.exists('#tads')) {
+					console.log('#tads found');
+					var theAds = this.evaluate(getAds);
+					console.log(theAds);
+					console.log('done with #tads');
+				} else {
+					console.log('#tads NOT found');
+				}
 			}, 30000);	
 			
 			spooky.run();
