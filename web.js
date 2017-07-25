@@ -46,8 +46,8 @@ function startSpooky(searchTerm, location, device){
 			
 			spooky.then(function(){
 				console.log('spooky.then() started');
-				function getAds(){
-					var ads = document.querySelectorAll('.ads-ad');
+				function getAds(sel){
+					var ads = document.querySelectorAll(sel);
 					return Array.prototype.map.call(ads, function(e) {
 						return e.getAttribute('class');
 					});
@@ -56,7 +56,7 @@ function startSpooky(searchTerm, location, device){
 				if(this.exists('.ads-ad')) {
 					console.log('.ads-ad found');
 					try{
-						var theAds = this.evaluate(getAds);
+						var theAds = this.evaluate(getAds, '.ads-ad');
 						console.log('getAds success');
 						console.log('theAds: '+theAds);						
 					} catch (e) {
