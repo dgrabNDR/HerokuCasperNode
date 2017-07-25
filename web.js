@@ -39,15 +39,7 @@ function startSpooky(searchTerm, location, device){
 			console.log('endpoint: '+endpoint);
 
 
-			spooky.start(endpoint, function(){				
-				console.log('Spooky started');
-				if(this.exists('#tvcap')) {
-					console.log('#tvcap found');
-				} else {
-					console.log('#tvcap NOT found');
-				}
-				
-			}).waitForSelector('#tvcap', function(){
+			spooky.start(endpoint).waitForSelector('#tvcap', function(){
 				if(this.exists('#tvcap')) {
 					console.log('#tvcap found');
 				} else {
