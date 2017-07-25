@@ -132,7 +132,7 @@ app.use( bodyParser.json() );
 app.use(express.json());
 app.post('/', function(request, response) {
     console.log('app.post');
-    startSpooky(request.body.searchterm, request.body.location. request.body.);
+    startSpooky(request.body.searchterm, request.body.location, request.body.);
     //response.send(gGreeting);
 });
 
