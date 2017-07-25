@@ -41,16 +41,16 @@ function startSpooky(searchTerm, location, device){
 
 			spooky.start(endpoint, function(){				
 				console.log('Spooky started');
-					
+				spooky.waitForSelector('#tvcap', function(){
+					if(this.exists('#tvcap')) {
+						console.log('#tvcap found');
+					} else {
+						console.log('#tvcap NOT found');
+					}
+				});	
 			});
 			
-			spooky.waitForSelector('#tvcap', function(){
-				if(this.exists('#tvcap')) {
-					console.log('#tvcap found');
-				} else {
-					console.log('#tvcap NOT found');
-				}
-			});
+			
 			/*spooky.waitForSelector('.aw-diagnostic-preview-iframe-v2', function(){
 				console.log('iframe found');
 				if (this.exists('.aw-diagnostic-preview-iframe-v2')) {
