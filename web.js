@@ -67,6 +67,12 @@ function startSpooky(searchTerm, location, device){
 					console.log('#tads NOT found');
 				}
 			}, function(){
+				function getAds(){
+					var ads = document.querySelectorAll('li.ads-ad');
+					return Array.prototype.map.call(ads, function(e) {
+						return e.getAttribute('data-hveid');
+					});
+				}
 				console.log('timed out looking for #tads')
 				try{
 					var theAds = this.evaluate(getAds());
