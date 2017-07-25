@@ -38,7 +38,6 @@ function startSpooky(searchTerm, location, device){
 			if(device != null && device != ''){
 				endpoint += '&adtest-useragent=='+device;
 			}
-			//endpoint  = 'https://www.google.com/search?q=Debt+consolidation&ip=0.0.0.0&source_ip=0.0.0.0&ie=UTF-8&oe=UTF-8&hl=en&adtest=on&noj=1&igu=1&uule=w+CAIQIFISCTsIP9OlT8KJEWL-d-EGjwvI&adsdiag=-7197610009017168141&adtest-useragent=Mozilla/5.0+(iPhone;+CPU+iPhone+OS+7_0+like+Mac+OS+X)+AppleWebKit/537.51.1+(KHTML,+like+Gecko)+Version/7.0+Mobile/11A465+Safari/9537.53';
 			console.log('endpoint: '+endpoint);
 
 
@@ -46,14 +45,17 @@ function startSpooky(searchTerm, location, device){
 				console.log('spooky started');
 			});
 			
-			spooky.waitForSelector('#tvcap', function(){
-				if(this.exists('#tvcap')) {
-					console.log('#tvcap found');
+			spooky.waitForSelector('#tads', function(){
+				if(this.exists('#tads')) {
+					console.log('#tads found');
+					var tads = document.getElementById('tads');
+					var ads = tads.getElementsByTagName('ol');
+					console.log(ads);
 				} else {
-					console.log('#tvcap NOT found');
+					console.log('#tads NOT found');
 				}
 			}, function(){
-				console.log('timed out looking for #tvcap')
+				console.log('timed out looking for #tads')
 			}, 30000);	
 			/*spooky.waitForSelector('.aw-diagnostic-preview-iframe-v2', function(){
 				console.log('iframe found');
