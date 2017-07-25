@@ -48,7 +48,7 @@ function startSpooky(searchTerm, location, device){
 			spooky.waitForSelector('#tads', function(){
 				if(this.exists('#tads')) {
 					console.log('#tads found');
-					var ads = document.querySelectorAll('li.ads-ad');
+					var ads = this.evaluate(getLinks());
 					console.log(ads);
 				} else {
 					console.log('#tads NOT found');
@@ -90,6 +90,13 @@ function startSpooky(searchTerm, location, device){
 			console.log(log.message.replace(/ \- .*/, ''));
 		}
 	});
+}
+
+function getLinks() {
+    var links = document.querySelectorAll('li.ads-ad');
+    return Array.prototype.map.call(links, function(e) {
+        return e.getAttribute('data-hveid');
+    });
 }
 
 app.use(express.logger());
