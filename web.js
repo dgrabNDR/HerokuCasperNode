@@ -33,6 +33,13 @@ function startSpooky(searchTerm, location, device){
 				throw e;
 			}
 			console.log('start');
+			
+			function getAds(){
+				var ads = document.querySelectorAll('li.ads-ad');
+				return Array.prototype.map.call(ads, function(e) {
+					return e.getAttribute('data-hveid');
+				});
+			}
 
 			var endpoint = 'https://www.google.com/search?q='+searchTermURL+'&ip=0.0.0.0&source_ip=0.0.0.0&ie=UTF-8&oe=UTF-8&hl=en&adtest=on&noj=1&igu=1&uule='+location+'&adsdiag=-7197610009017168141'
 			if(device != null && device != ''){
@@ -48,10 +55,9 @@ function startSpooky(searchTerm, location, device){
 			spooky.waitForSelector('#tads', function(){
 				if(this.exists('#tads')) {
 					console.log('#tads found');
-					var ads = document.querySelectorAll('li.ads-ad');
-					Array.prototype.map.call(ads, function(e) {
-						console.log(e.getAttribute('data-hveid'));
-					});
+					var theAds = this.evaluate(getAds);
+					console.log(theAds);
+					console.log('done with #tads');
 				} else {
 					console.log('#tads NOT found');
 				}
