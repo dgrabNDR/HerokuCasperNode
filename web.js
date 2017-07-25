@@ -12,9 +12,11 @@ var jQuery = require('jquery')
 
 var spooky;
 var gGreeting;
-function startSpooky(searchTerm){
+function startSpooky(searchTerm, location, device){
 	var searchTermURL = JSON.stringify(searchTerm).replace(/ /g,'+');
 	console.log('searchTermURL: '+searchTermURL);
+	console.log('location: '+location);
+	console.log('device: '+device);
 	spooky = new Spooky({
 			child: {
 				transport: 'http'
@@ -31,6 +33,11 @@ function startSpooky(searchTerm){
 			}
 			console.log('start');
 			//$ = jQuery.noConflict();
+			var endpoint = 'https://www.google.com/search?q=Debt+consolidation&ip=0.0.0.0&source_ip=0.0.0.0&ie=UTF-8&oe=UTF-8&hl=en&adtest=on&noj=1&igu=1';
+			endpoint += '&uule='+location;
+			if(device != null){
+				endpoint += '&useragent=='+device;
+			}
 			spooky.start('https://adwords.google.com/apt/anon/AdPreview?aptenv_v2=ZG9tYWluPXd3dy5nb29nbGUuY29tLGxhbmc9ZW4sbG9jPTEwMjMxOTF8VVMscGxhdD1ERVNLVE9Q&st='+searchTermURL+'&run=true',function(){				
 				console.log('Spooky started');
 					
@@ -117,10 +124,7 @@ app.use( bodyParser.json() );
 app.use(express.json());
 app.post('/', function(request, response) {
     console.log('app.post');
-	console.log('searchterm: '+request.body.searchterm);
-	console.log('location: '+request.body.location);
-	console.log('device: '+request.body.device);
-    startSpooky(request.body.searchterm);
+    startSpooky(request.body.searchterm, request.body.location. request.body.device);
     //response.send(gGreeting);
 });
 
