@@ -42,16 +42,10 @@ function startSpooky(searchTerm, location, device){
 
 			spooky.start(endpoint, function(){
 				console.log('spooky started');
-				var theAds = this.evaluate(function(){
-					var links = document.querySelectorAll('.ads-ad');
-					console.log(links);
-					return links;
-				});
-				console.log(theAds);
-			});
+				spooky.waitForSelector('.ads-ad');
+			});		
 			
-			
-			spooky.waitForSelector('.ads-ad', function(){
+			spooky.then('.ads-ad', function(){
 				function getAds(selector){
 					var links = document.querySelectorAll(selector);
 					return Array.prototype.map.call(links, function(e) {
