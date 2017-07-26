@@ -5,6 +5,7 @@ var app = express();
 var Spooky = require('spooky');
 var bodyParser = require('body-parser')
 var jQuery = require('jquery')
+var selector = '.ads-visurl > cite';
 
 // adoped from Heroku's [Getting Started][] and [Spooky][]'s sample
 // [Getting Started]: https://devcenter.heroku.com/articles/getting-started-with-nodejs
@@ -47,14 +48,14 @@ function startSpooky(searchTerm, location, device){
 			spooky.then(function(){
 				console.log('spooky.then() started');
 				function getAds(){
-					var ads = document.querySelectorAll('.ads-ad');
+					var ads = document.querySelectorAll('.ads-visurl > cite');
 					return Array.prototype.map.call(ads, function(e) {
-						return e.getAttribute('class');
+						return e.innerHTML;
 					});
 				};
 				
-				if(this.exists('.ads-ad')) {
-					console.log('.ads-ad found');
+				if(this.exists(selector)) {
+					console.log(selector+' found');
 					try{
 						var theAds = this.evaluate(getAds);
 						console.log('getAds success');
@@ -62,9 +63,9 @@ function startSpooky(searchTerm, location, device){
 					} catch (e) {
 						console.log('getAds failed');
 					}
-					console.log('done with .ads-ad');
+					console.log('done with '+selector);
 				} else {
-					console.log('.ads-ad NOT found');
+					console.log(selector+' NOT found');
 				}
 			});	
 			
