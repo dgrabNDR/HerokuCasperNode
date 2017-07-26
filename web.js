@@ -5,7 +5,6 @@ var app = express();
 var Spooky = require('spooky');
 var bodyParser = require('body-parser')
 var jQuery = require('jquery')
-var selector = '.ads-visurl > cite';
 
 // adoped from Heroku's [Getting Started][] and [Spooky][]'s sample
 // [Getting Started]: https://devcenter.heroku.com/articles/getting-started-with-nodejs
@@ -47,6 +46,7 @@ function startSpooky(searchTerm, location, device){
 			
 			spooky.then(function(){
 				console.log('spooky.then() started');
+				var selector = '.ads-visurl > cite';
 				function getAds(){
 					var ads = document.querySelectorAll('.ads-visurl > cite');
 					return Array.prototype.map.call(ads, function(e) {
