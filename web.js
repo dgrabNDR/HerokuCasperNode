@@ -5,7 +5,7 @@ var app = express();
 var Spooky = require('spooky');
 var bodyParser = require('body-parser');
 var jQuery = require('jquery');
-var nforce = require('nforce');
+//var nforce = require('nforce');
 
 // adoped from Heroku's [Getting Started][] and [Spooky][]'s sample
 // [Getting Started]: https://devcenter.heroku.com/articles/getting-started-with-nodejs
@@ -62,6 +62,7 @@ function startSpooky(searchTerm, location, device){
 						console.log('getAds success');
 						console.log('theAds: '+theAds);
 						if(theAds != null){
+							/*
 							var org = nforce.createConnection({
 							  clientId: '3MVG9yZ.WNe6byQBrEHW_cRm._dp_BF.2h1xhv1.qUNdo9mllhb6wLTwiF1e5vhIH1eu9Ojvl0UiD6Y62FGr6',
 							  clientSecret: '7740176649279426585',
@@ -76,6 +77,7 @@ function startSpooky(searchTerm, location, device){
 							  if(!err) oauth = resp;
 							});
 							console.log('oauth: '+oauth);
+							*/
 						}
 					} catch (e) {
 						console.log('getAds failed');
